@@ -1,141 +1,503 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE BLACK LEDGER — The Hidden Human Archive</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@300;400;600&display=swap');
-        .font-classified { font-family: 'Special Elite', cursive; }
-        body { font-family: 'Inter', sans-serif; background-color: #030303; color: #d4d4d4; }
-        .vault-glow { box-shadow: 0 0 60px rgba(185, 28, 28, 0.18); }
-        .card-border { border: 1px solid rgba(255, 255, 255, 0.08); }
-        .card-border:hover { border-color: rgba(185, 28, 28, 0.5); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030303">
+<title>THE BLACK LEDGER // The Hidden Human Archive</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Space+Mono:wght@400;700&family=Manrope:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#030303;--panel:#0d0b0a;--panel-border:#2a2019;--gold:#c49a63;--red:#991b1b;--cream:#e5e5e5;--muted:#a39a8e}
+body{background:radial-gradient(circle at 50% 10%, #1a0b0a 0%, #080606 40%, var(--bg) 80%);color:var(--cream);font-family:'Manrope',sans-serif;min-height:100vh}
+.mono{font-family:'Space Mono',monospace}
+.serif{font-family:'Cinzel',serif}
+.font-classified{font-family:'Special Elite',cursive}
+.scanline{background:linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,.4) 50%),linear-gradient(90deg,rgba(255,0,0,.015),rgba(0,255,0,.008),rgba(255,0,0,.015));background-size:100% 4px,8px 100%;pointer-events:none;position:fixed;inset:0;z-index:50}
+.vault-glow{box-shadow:0 0 80px rgba(153, 27, 27, 0.18), inset 0 0 40px rgba(0,0,0,0.8)}
+.glass-panel{background:rgba(13, 11, 10, 0.85);backdrop-filter:blur(12px);border:1px solid var(--panel-border)}
+.blurred{filter:blur(7px);user-select:none;pointer-events:none}
+@keyframes pulseGlow{0%,100%{opacity:0.3}50%{opacity:0.7}}
+.pulse-bg{animation:pulseGlow 4s ease-in-out infinite}
+</style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-between p-4 md:p-6 selection:bg-red-900 selection:text-white">
+<body class="min-h-screen p-4 md:p-6 flex flex-col items-center justify-start selection:bg-red-900 selection:text-white">
 
-    <!-- Top Bar -->
-    <header class="w-full max-w-3xl flex justify-between items-center border-b border-neutral-800 pb-4">
-        <div class="font-classified tracking-widest text-red-600 text-xs md:text-sm flex items-center gap-2">
-            <span class="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-            CLASSIFIED // SECURE ARCHIVE 001
-        </div>
-        <div class="text-xs text-neutral-500 tracking-wider">STATUS: LIVE GATEWAY</div>
-    </header>
+<div class="scanline"></div>
 
-    <!-- Main Container -->
-    <main class="w-full max-w-2xl my-auto space-y-8 py-8">
-        
-        <!-- Hero Section -->
-        <div class="text-center space-y-3">
-            <h1 class="font-classified text-3xl md:text-5xl text-neutral-100 tracking-wider uppercase">
-                The Black Ledger
-            </h1>
-            <p class="text-xs md:text-sm text-neutral-400 tracking-wide uppercase">
-                Some things remain unwritten. Every choice leaves a trace.
-            </p>
-        </div>
+<header class="w-full max-w-xl border border-neutral-800 p-3.5 mb-6 glass-panel rounded-lg flex justify-between items-center text-[11px] mono shadow-2xl">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_10px_#dc2626]"></span>
+<span class="text-neutral-400 tracking-wider">LEDGER PROTOCOL // SECURE ARCHIVE</span>
+</div>
+<div class="text-neutral-300">VAULT REc: <span id="counterDisplay" class="text-amber-500 font-bold">#000</span></div>
+</header>
 
-        <!-- Free Prologue Section (The Hook) -->
-        <div class="bg-neutral-900/90 card-border p-6 md:p-8 rounded-xl vault-glow space-y-5">
-            <div class="flex justify-between items-center text-xs text-red-500 font-classified">
-                <span>FILE 001: THE UNSENT LETTER</span>
-                <span class="bg-red-950/60 text-red-300 px-2 py-1 rounded border border-red-900">FREE PROLOGUE</span>
-            </div>
-            
-            <p class="text-sm text-neutral-300 leading-relaxed italic border-l-2 border-red-700 pl-4">
-                "An abandoned file recovered from the vault. The date is legible, but the recipient's name has been cleanly scraped away. Three pieces of testimony contradict each other..."
-            </p>
+<main class="w-full max-w-xl flex flex-col gap-6">
 
-            <div class="pt-2 flex flex-col sm:flex-row gap-3">
-                <button onclick="togglePrologue()" class="flex-1 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 text-xs font-semibold uppercase tracking-widest py-3 px-4 rounded transition-all cursor-pointer">
-                    Inspect Evidence (Free)
-                </button>
-                <button onclick="triggerCheckout()" class="flex-1 bg-red-800 hover:bg-red-700 text-white text-xs font-semibold uppercase tracking-widest py-3 px-4 rounded transition-all cursor-pointer shadow-lg shadow-red-950/50">
-                    Unlock Full Vault — ₹599
-                </button>
-            </div>
-        </div>
+<div id="vaultStage" class="glass-panel p-6 md:p-8 rounded-xl vault-glow relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-60 h-60 bg-red-900/10 rounded-full blur-3xl pulse-bg pointer-events-none"></div>
 
-        <!-- Interactive Prologue Box (Hidden initially) -->
-        <div id="prologue-box" class="hidden bg-neutral-950 border border-red-900/40 p-6 rounded-xl space-y-4 animate-fade-in">
-            <h3 class="font-classified text-red-500 text-sm">PROLOGUE INVESTIGATION</h3>
-            <p class="text-xs text-neutral-300 leading-relaxed">Examine the clues: Document A places the sender at midnight. Document B contradicts the timestamp. What is your deduction?</p>
-            
-            <div class="space-y-2 text-xs">
-                <label class="block p-3 bg-neutral-900 card-border rounded hover:border-red-700 cursor-pointer transition-all">
-                    <input type="radio" name="clue" class="mr-2 accent-red-600"> Document A timeline is intentionally altered.
-                </label>
-                <label class="block p-3 bg-neutral-900 card-border rounded hover:border-red-700 cursor-pointer transition-all">
-                    <input type="radio" name="clue" class="mr-2 accent-red-600"> Document B conceals the true recipient's location.
-                </label>
-            </div>
+<div class="flex justify-between items-center mb-3">
+<h1 class="text-xl md:text-2xl font-bold tracking-wider text-white uppercase font-classified">The Black Ledger</h1>
+<span class="text-[10px] mono text-amber-500 border border-amber-900/50 bg-amber-950/30 px-2.5 py-1 rounded tracking-widest uppercase">LIFETIME ACCESS</span>
+</div>
 
-            <button onclick="submitDeduction()" class="w-full bg-red-900 hover:bg-red-800 text-red-100 text-xs font-semibold uppercase tracking-widest py-3 rounded cursor-pointer transition-all">
-                Submit Deduction
-            </button>
-            <p id="prologue-result" class="text-xs text-center text-neutral-400 hidden pt-2"></p>
-        </div>
+<div class="text-center my-6 space-y-2">
+<h2 class="serif text-amber-100/90 text-sm md:text-base tracking-widest uppercase">Some things remain unwritten.</h2>
+<p class="text-xs text-neutral-400 leading-relaxed max-w-md mx-auto">Har insaan ke paas ek aisi baat hoti hai jo wo duniya se chhupata hai. Apna sach safe lock karo aur andar ki secret world explore karo.</p>
+<div class="inline-flex items-center gap-1.5 text-[10px] text-emerald-400 mt-3 font-mono bg-emerald-950/40 border border-emerald-900/50 px-3 py-1 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+Secure Verification Protocol Active • Anonymous Entry
+</div>
+</div>
 
-        <!-- Inside The Vault Preview Grid -->
-        <div class="space-y-4 pt-4">
-            <h2 class="font-classified text-xs text-neutral-400 uppercase tracking-widest text-center">What Waits Inside The Vault</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div class="bg-neutral-900/50 card-border p-4 rounded-lg space-y-2">
-                    <div class="text-red-500 font-classified text-xs">01 // ARCHIVE</div>
-                    <p class="text-xs text-neutral-400">50+ original mystery cases, clues and hidden files.</p>
-                </div>
-                <div class="bg-neutral-900/50 card-border p-4 rounded-lg space-y-2">
-                    <div class="text-red-500 font-classified text-xs">02 // GHOST MIRROR</div>
-                    <p class="text-xs text-neutral-400">Deep behavioral profile and shareable identity cards.</p>
-                </div>
-                <div class="bg-neutral-900/50 card-border p-4 rounded-lg space-y-2">
-                    <div class="text-red-500 font-classified text-xs">03 // CHOICE ENGINE</div>
-                    <p class="text-xs text-neutral-400">Branching moral dilemmas with multiple endings.</p>
-                </div>
-            </div>
-        </div>
+<div class="mb-5 bg-neutral-900/80 border border-neutral-800 p-4 rounded-lg text-xs space-y-2 shadow-inner">
+<div class="flex justify-between text-[10px] text-red-400 font-classified tracking-wide">
+<span>FILE 001: THE UNSENT LETTER</span>
+<span>[FREE PREVIEW]</span>
+</div>
+<p class="text-neutral-300 text-[11px] italic leading-relaxed">"An abandoned file recovered from the vault. The date is legible, but the recipient's name has been cleanly scraped away..."</p>
+</div>
 
-        <!-- Call to Action Banner -->
-        <div class="bg-gradient-to-r from-red-950/40 via-neutral-900 to-red-950/40 card-border p-6 rounded-xl text-center space-y-4">
-            <div class="space-y-1">
-                <h3 class="font-classified text-lg text-neutral-200">LIFETIME ACCESS MEMBERSHIP</h3>
-                <p class="text-xs text-neutral-400">One-time payment. Instant secure entry upon verification.</p>
-            </div>
-            <button onclick="triggerCheckout()" class="w-full sm:w-auto bg-red-700 hover:bg-red-600 text-white text-xs font-bold uppercase tracking-widest py-3 px-8 rounded-lg cursor-pointer transition-all shadow-xl shadow-red-900/30">
-                Enter The Vault Now — ₹599
-            </button>
-        </div>
+<div class="relative mb-4">
+<textarea id="confessionInput" rows="4" maxlength="1000" placeholder="Apna unsaid sach, galti ya raaz yahan likho..." class="w-full bg-neutral-950/90 border border-neutral-800 rounded-lg p-3.5 text-sm focus:border-red-600 focus:ring-1 focus:ring-red-600 focus:outline-none text-white resize-none transition-all shadow-inner"></textarea>
+<div class="flex justify-between text-[10px] mono text-neutral-500 mt-1.5 px-1">
+<span>SANITIZER: ACTIVE</span><span id="charCount">0 / 1000</span>
+</div>
+</div>
 
-    </main>
+<div id="stepInitiate">
+<button onclick="openPaymentModal()" class="w-full bg-gradient-to-r from-red-800 to-red-700 hover:from-red-700 hover:to-red-600 text-white font-bold py-4 px-6 rounded-lg text-xs tracking-widest uppercase mono transition-all shadow-xl shadow-red-950/50 cursor-pointer flex items-center justify-center gap-2 border border-red-600/30">
+<span>UNLOCK VAULT & ARCHIVE — ₹599</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+</button>
+<p class="text-[10px] text-center text-neutral-500 mt-2.5 mono">Instant QR & 1-Tap UPI (PhonePe / GPay / Paytm / BHIM)</p>
+</div>
 
-    <!-- Footer -->
-    <footer class="w-full max-w-3xl text-center border-t border-neutral-900 pt-4 text-xs text-neutral-600 space-y-1">
-        <p>© 2026 THE BLACK LEDGER. Secure automated verification system.</p>
-        <p class="text-neutral-700">Terms of Access • Privacy Policy • Support</p>
-    </footer>
+<div id="stepVerify" class="hidden flex-col gap-2.5 mt-4 pt-4 border-t border-neutral-800/80">
+<p class="text-xs text-amber-200/90 mono font-semibold">Payment Completed?</p>
+<p class="text-[11px] text-neutral-400">Enter the 12-digit UPI Reference / UTR Number from your payment app screen:</p>
+<input type="text" id="utrInput" inputmode="numeric" maxlength="12" placeholder="Enter 12-digit UTR" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-3 text-xs text-white mono focus:border-red-500 focus:outline-none tracking-widest">
+<button id="verifyBtn" onclick="submitUtrForVerification()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-lg text-xs tracking-wider uppercase mono transition cursor-pointer shadow-lg shadow-red-900/20">SUBMIT FOR VERIFICATION</button>
+<p id="verifyMsg" class="text-[10px] text-center text-neutral-400 mt-1 mono hidden"></p>
+</div>
+</div>
 
-    <!-- Interactive Script -->
-    <script>
-        function togglePrologue() {
-            const box = document.getElementById('prologue-box');
-            box.classList.toggle('hidden');
-        }
+<div id="pendingBox" class="hidden glass-panel border-yellow-900/60 p-6 rounded-xl mono text-center flex flex-col items-center shadow-2xl">
+<div class="w-8 h-8 rounded-full border-2 border-yellow-500/20 border-t-yellow-500 animate-spin mb-3"></div>
+<div class="text-[10px] text-yellow-500 tracking-widest uppercase mb-1">● VERIFICATION IN PROGRESS</div>
+<h2 class="text-base font-bold text-white uppercase tracking-wider mb-2">ENTRY PENDING</h2>
+<p id="pollStatus" class="text-xs text-neutral-400 mb-2">Waiting for automated clearance...</p>
+<div id="pendingNode" class="text-[11px] text-yellow-500 mono mt-1">NODE // PENDING</div>
+</div>
 
-        function submitDeduction() {
-            const result = document.getElementById('prologue-result');
-            result.classList.remove('hidden');
-            result.innerHTML = '<span class="text-red-400 font-semibold">Deduction verified.</span> The complete chain of evidence and remaining 49 files are restricted to vault members.';
-        }
+<div id="accessBox" class="hidden glass-panel border-emerald-900/60 p-6 rounded-xl mono text-center flex flex-col items-center shadow-2xl">
+<div class="w-10 h-10 rounded-full bg-emerald-950 border border-emerald-800 flex items-center justify-center text-emerald-400 mb-3 text-lg">✓</div>
+<div class="text-[10px] text-emerald-500 tracking-widest uppercase mb-1">● ACCESS GRANTED</div>
+<h2 class="text-lg font-bold text-white uppercase tracking-wider mb-1" id="unlockedPersona">THE PRAGMATIC SINNER</h2>
+<p class="text-xs text-neutral-400 mb-3" id="unlockedNode">NODE // 000001</p>
+<p class="text-xs text-neutral-300">Your entry is permanently sealed. Full archive and missions unlocked.</p>
+</div>
 
-        function triggerCheckout() {
-            // Replace this URL with your actual Cashfree Payment Link or backend checkout endpoint
-            window.location.href = "https://payments.cashfree.com/links/your-payment-link";
-        }
+<div class="glass-panel p-5 rounded-xl shadow-xl">
+<div class="flex justify-between items-center mb-4 pb-2 border-b border-neutral-800">
+<span class="text-xs font-bold tracking-wider text-neutral-300 uppercase mono flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-neutral-600" id="streamDot"></span>
+Live Vault Stream
+</span>
+<span id="lockBadge" class="text-[10px] bg-red-950/80 text-red-400 border border-red-900 px-2.5 py-0.5 rounded mono tracking-widest">LOCKED</span>
+</div>
+<div class="flex flex-col gap-3 text-xs max-h-96 overflow-y-auto pr-1" id="feedList">
+<p class="text-neutral-500 text-[11px] mono text-center py-4">Connecting to archive feed...</p>
+</div>
+</div>
+</main>
+
+<footer class="mt-8 text-center text-[10px] mono text-neutral-600 tracking-wider">
+THE BLACK LEDGER &bull; THE HIDDEN HUMAN ARCHIVE &bull; SECURE NODE SYSTEM
+</footer>
+
+<div id="payModal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+<div class="glass-panel border-neutral-800 p-6 rounded-2xl max-w-xs w-full mono text-center flex flex-col items-center shadow-2xl">
+<div class="text-[10px] text-red-500 font-bold mb-1 tracking-widest uppercase">SECURE UPI GATEWAY</div>
+<h3 class="text-sm font-bold text-white mb-3">Pay ₹599 for Lifetime Access</h3>
+<div class="text-[10px] text-neutral-400 mb-2.5">SCAN QR CODE WITH ANY UPI APP:</div>
+<div class="bg-white p-2.5 rounded-xl mb-3 shadow-lg">
+<img id="modalQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi%3A%2F%2Fpay%3Fpa%3DBHARATPE2Y0M0B8N0T09199%40unitype%26pn%3DBlack%20Ledger%26am%3D599%26cu%3DINR%26tn%3DBlack%20Ledger%26entry" class="w-36 h-36 object-contain mx-auto" alt="UPI QR">
+</div>
+<p class="text-[10px] text-amber-400/90 mb-4 leading-relaxed">💡 Screenshot lein aur PhonePe / GPay / Paytm ki Gallery se scan karke ₹599 pay karein</p>
+<button onclick="closeModalAndVerify()" class="w-full bg-neutral-100 hover:bg-white text-black py-3 rounded-xl text-[11px] font-bold uppercase tracking-wider cursor-pointer transition-all shadow-md">I HAVE PAID (ENTER UTR)</button>
+<button onclick="document.getElementById('payModal').classList.add('hidden')" class="w-full mt-2 bg-transparent text-neutral-400 hover:text-white py-1.5 text-[10px] uppercase tracking-wider cursor-pointer">Cancel</button>
+</div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyAlmnaSJmU5FRTcpbmDa6MO0hdUwIeLOZc",
+authDomain: "blackledger-759c1.firebaseapp.com",
+databaseURL: "https://blackledger-759c1-default-rtdb.asia-southeast1.firebasedatabase.app",
+projectId: "blackledger-759c1",
+storageBucket: "blackledger-759c1.appspot.com",
+messagingSenderId: "1064101172402",
+appId: "1:1064101172402:web:951950dd4e136c44e965eb"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getDatabase(app);
+
+const input = document.getElementById("confessionInput");
+const AMOUNT = 599;
+
+let currentUser = null;
+let statusListener = null;
+let feedListener = null;
+let archiveListener = null;
+let restoreStarted = false;
+
+input.addEventListener("input", () => {
+document.getElementById("charCount").textContent = `${input.value.length} / 1000`;
+});
+
+async function startAuthentication() {
+try {
+await setPersistence(auth, browserLocalPersistence);
+if (!auth.currentUser) {
+await signInAnonymously(auth);
+}
+} catch (error) {
+console.error("Authentication error:", error);
+}
+}
+
+onAuthStateChanged(auth, async user => {
+if (!user) return;
+currentUser = user;
+if (!restoreStarted) {
+restoreStarted = true;
+await restorePayment();
+startRealtimeFeed();
+startArchiveCounter();
+}
+});
+
+startAuthentication();
+
+window.openPaymentModal = function() {
+const text = input.value.trim();
+if (text.length < 10) {
+alert("Enter at least 10 characters of your note or confession to proceed.");
+return;
+}
+document.getElementById("payModal").classList.remove("hidden");
+};
+
+window.closeModalAndVerify = function() {
+document.getElementById("payModal").classList.add("hidden");
+document.getElementById("stepInitiate").classList.add("hidden");
+document.getElementById("stepVerify").classList.remove("hidden");
+document.getElementById("stepVerify").classList.add("flex");
+};
+
+function generateRequestId() {
+if (window.crypto && crypto.randomUUID) {
+return "REQ_" + crypto.randomUUID().replaceAll("-", "").substring(0, 20).toUpperCase();
+}
+return "REQ_" + Date.now() + "_" + Math.random().toString(36).substring(2, 8).toUpperCase();
+}
+
+window.submitUtrForVerification = async function() {
+const text = input.value.trim();
+const utr = document.getElementById("utrInput").value.trim();
+const btn = document.getElementById("verifyBtn");
+const msg = document.getElementById("verifyMsg");
+
+if (text.length < 10) {
+alert("Enter at least 10 characters.");
+return;
+}
+if (!/^\d{12}$/.test(utr)) {
+alert("Please enter a valid 12-digit UTR.");
+return;
+}
+if (!currentUser) {
+alert("Secure connection is starting. Please wait.");
+return;
+}
+
+btn.disabled = true;
+btn.innerText = "TRANSMITTING TRACE...";
+msg.classList.remove("hidden");
+msg.className = "text-[10px] text-center text-neutral-400 mt-1 mono";
+msg.innerText = "Sending payment trace securely...";
+
+try {
+const requestId = generateRequestId();
+const requestRef = ref(db, `paymentRequests/${requestId}`);
+const requestData = {
+ownerUid: currentUser.uid,
+utr: utr,
+confession: text,
+amount: AMOUNT,
+status: "PENDING",
+timestamp: Date.now()
+};
+
+await set(requestRef, requestData);
+localStorage.setItem("bl_requestId", requestId);
+localStorage.setItem("bl_confession", text);
+localStorage.setItem("bl_utr", utr);
+
+showPending(requestId);
+listenToStatus(requestId);
+} catch (error) {
+console.error("Firebase submission error:", error);
+alert("Submission failed: " + error.message);
+btn.disabled = false;
+btn.innerText = "SUBMIT FOR VERIFICATION";
+}
+};
+
+function showPending(requestId) {
+document.getElementById("stepInitiate").classList.add("hidden");
+document.getElementById("stepVerify").classList.remove("hidden");
+document.getElementById("stepVerify").classList.add("flex");
+document.getElementById("pendingBox").classList.remove("hidden");
+document.getElementById("pollStatus").innerText = "Waiting for automated clearance...";
+document.getElementById("pendingNode").innerText = "NODE // PENDING";
+
+const msg = document.getElementById("verifyMsg");
+msg.className = "text-[10px] text-center text-yellow-500 mt-1 mono";
+msg.classList.remove("hidden");
+msg.innerText = "Waiting for automated clearance...";
+
+const btn = document.getElementById("verifyBtn");
+btn.disabled = true;
+btn.innerText = "VERIFICATION PENDING";
+}
+
+function listenToStatus(requestId) {
+if (statusListener) {
+statusListener();
+statusListener = null;
+}
+const statusRef = ref(db, `paymentRequests/${requestId}/status`);
+statusListener = onValue(statusRef, async snapshot => {
+const status = snapshot.val();
+if (status === "APPROVED") {
+const fullRef = ref(db, `paymentRequests/${requestId}`);
+const fullSnap = await get(fullRef);
+const data = fullSnap.val() || {};
+showVerified({
+nodeId: data.nodeNumber || null,
+persona: data.persona || "THE PRAGMATIC SINNER"
+});
+} else if (status === "REJECTED") {
+showRejected();
+} else {
+showPending(requestId);
+}
+});
+}
+
+function showVerified(data) {
+document.getElementById("pendingBox").classList.add("hidden");
+document.getElementById("stepInitiate").classList.add("hidden");
+document.getElementById("stepVerify").classList.add("hidden");
+document.getElementById("stepVerify").classList.remove("flex");
+document.getElementById("accessBox").classList.remove("hidden");
+
+const node = data.nodeId || "PENDING";
+document.getElementById("unlockedNode").textContent = `NODE // ${node}`;
+document.getElementById("unlockedPersona").textContent = data.persona || "THE PRAGMATIC SINNER";
+
+localStorage.setItem("bl_verified", "true");
+startRealtimeFeed();
+startArchiveCounter();
+
+window.scrollTo({
+top: document.getElementById("accessBox").offsetTop - 20,
+behavior: "smooth"
+});
+}
+
+function showRejected() {
+if (statusListener) {
+statusListener();
+statusListener = null;
+}
+localStorage.removeItem("bl_requestId");
+localStorage.removeItem("bl_confession");
+localStorage.removeItem("bl_utr");
+localStorage.removeItem("bl_verified");
+
+document.getElementById("pendingBox").classList.add("hidden");
+document.getElementById("stepVerify").classList.add("hidden");
+document.getElementById("stepVerify").classList.remove("flex");
+document.getElementById("stepInitiate").classList.remove("hidden");
+document.getElementById("utrInput").value = "";
+
+const btn = document.getElementById("verifyBtn");
+btn.disabled = false;
+btn.innerText = "SUBMIT FOR VERIFICATION";
+
+const msg = document.getElementById("verifyMsg");
+msg.className = "text-[10px] text-center text-red-500 mt-1 mono";
+msg.classList.remove("hidden");
+msg.innerText = "Payment could not be verified. Please make a new payment.";
+}
+
+async function restorePayment() {
+const requestId = localStorage.getItem("bl_requestId");
+if (!requestId || !currentUser) return;
+
+const savedConfession = localStorage.getItem("bl_confession");
+if (savedConfession) {
+input.value = savedConfession;
+document.getElementById("charCount").textContent = `${savedConfession.length} / 1000`;
+}
+
+const savedUtr = localStorage.getItem("bl_utr");
+if (savedUtr) {
+document.getElementById("utrInput").value = savedUtr;
+}
+
+const requestRef = ref(db, `paymentRequests/${requestId}`);
+onValue(requestRef, snapshot => {
+const data = snapshot.val();
+if (!data) return;
+if (data.ownerUid && data.ownerUid !== currentUser.uid) return;
+
+if (data.status === "PENDING") {
+showPending(requestId);
+} else if (data.status === "APPROVED") {
+showVerified({
+nodeId: data.nodeNumber || "PENDING",
+persona: data.persona || "THE PRAGMATIC SINNER"
+});
+} else if (data.status === "REJECTED") {
+showRejected();
+}
+});
+listenToStatus(requestId);
+}
+
+function startArchiveCounter() {
+if (archiveListener) {
+archiveListener();
+archiveListener = null;
+}
+const counterRef = ref(db, "ledgerCounter");
+onValue(counterRef, snapshot => {
+const total = Number(snapshot.val() || 0);
+document.getElementById("counterDisplay").textContent = "#" + String(total).padStart(3, "0");
+}, error => {
+console.error("Archive counter error:", error);
+});
+}
+
+function startRealtimeFeed() {
+if (feedListener) {
+feedListener();
+feedListener = null;
+}
+const feedRef = ref(db, "publicFeed");
+onValue(feedRef, snapshot => {
+const feed = document.getElementById("feedList");
+const badge = document.getElementById("lockBadge");
+const streamDot = document.getElementById("streamDot");
+
+const isVerified = localStorage.getItem("bl_verified") === "true";
+const ownRequestId = localStorage.getItem("bl_requestId");
+
+if (isVerified) {
+badge.textContent = "UNLOCKED";
+badge.className = "text-[10px] bg-emerald-950 text-emerald-400 border border-emerald-900 px-2.5 py-0.5 rounded mono tracking-widest";
+streamDot.className = "w-2 h-2 rounded-full bg-emerald-500 animate-pulse";
+} else {
+badge.textContent = "LOCKED";
+badge.className = "text-[10px] bg-red-950 text-red-400 border border-red-900 px-2.5 py-0.5 rounded mono tracking-widest";
+streamDot.className = "w-2 h-2 rounded-full bg-red-500";
+}
+
+feed.replaceChildren();
+
+if (!snapshot.exists()) {
+const p = document.createElement("p");
+p.className = "text-neutral-500 text-[11px] mono text-center py-4";
+p.textContent = "No approved entries yet. Be the first.";
+feed.appendChild(p);
+return;
+}
+
+const data = snapshot.val();
+const entries = Object.entries(data).map(([id, val]) => ({ id, ...val })).filter(entry => entry.status === "APPROVED" && entry.confession);
+
+entries.sort((a, b) => (b.approvedAt || b.reviewedAt || b.timestamp || 0) - (a.approvedAt || a.reviewedAt || a.timestamp || 0));
+
+let count = 0;
+for (const entry of entries) {
+count++;
+const itemDiv = document.createElement("div");
+const isOwn = entry.id === ownRequestId;
+
+itemDiv.className = isOwn ?
+"border border-emerald-800/80 bg-emerald-950/20 p-3.5 rounded-lg text-[11px] mono shadow" :
+"border border-neutral-800/80 bg-neutral-900/40 p-3.5 rounded-lg text-[11px] mono";
+
+const headerRow = document.createElement("div");
+headerRow.className = "flex justify-between text-neutral-500 mb-1.5 text-[9px] uppercase";
+
+const nodeLabel = entry.nodeNumber ? `NODE // ${entry.nodeNumber}` : "NODE // UNKNOWN";
+const ownerLabel = isOwn ? "YOUR ENTRY" : "VERIFIED TRACE";
+
+headerRow.innerHTML = `<span>${nodeLabel}</span><span>${ownerLabel}</span>`;
+itemDiv.appendChild(headerRow);
+
+if (isOwn) {
+const ownBadge = document.createElement("div");
+ownBadge.className = "text-[9px] text-emerald-400 mb-2 uppercase tracking-wider font-semibold";
+ownBadge.textContent = "● YOUR APPROVED ENTRY";
+itemDiv.appendChild(ownBadge);
+}
+
+const contentP = document.createElement("p");
+contentP.className = "leading-relaxed text-xs";
+
+if (isVerified) {
+contentP.classList.add("text-neutral-200");
+contentP.textContent = `"${entry.confession}"`;
+} else {
+contentP.classList.add("blurred", "text-neutral-400");
+contentP.textContent = `"${entry.confession}"`;
+}
+
+itemDiv.appendChild(contentP);
+feed.appendChild(itemDiv);
+}
+
+if (count === 0) {
+const p = document.createElement("p");
+p.className = "text-neutral-500 text-[11px] mono text-center py-4";
+p.textContent = "Waiting for approved archive entries...";
+feed.appendChild(p);
+}
+}, error => {
+console.error("Realtime public feed error:", error);
+const feed = document.getElementById("feedList");
+feed.replaceChildren();
+const p = document.createElement("p");
+p.className = "text-red-500 text-[11px] mono text-center py-4";
+p.textContent = "Archive connection unavailable.";
+feed.appendChild(p);
+});
+}
     </script>
-</body>
+    </body>
 </html>
