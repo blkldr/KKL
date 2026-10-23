@@ -1,13 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080707">
-<meta name="color-scheme" content="dark"><meta name="description" content="The Black Ledger — The Hidden Human Archive. Enter a world of fictional mysteries, psychological scenarios, and choices.">
+<meta name="description" content="The Black Ledger — The Hidden Human Archive. Enter a world of fictional mysteries, psychological scenarios, and choices.">
 <title>THE BLACK LEDGER — The Hidden Human Archive</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
 :root{--bg:#080707;--panel:#11100f;--panel2:#171412;--line:#45352b;--gold:#c49a63;--red:#a52c26;--cream:#e8dfd2;--muted:#a39a8e;--green:#8fba91}
 *{box-sizing:border-box}
@@ -16,6 +18,8 @@ body{margin:0;background:radial-gradient(ellipse at 50% 8%,#291512 0%,#100c0b 35
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background:repeating-linear-gradient(0deg,transparent 0 3px,#000 4px);z-index:10}
 .mono{font-family:'DM Mono',monospace}
 .serif{font-family:Cinzel,serif}
+.font-classified{font-family:'Special Elite',cursive}
+.blurred{filter:blur(7px);user-select:none;pointer-events:none}
 .topbar{max-width:1200px;margin:auto;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff12;position:relative;z-index:2}
 .brand-mini{letter-spacing:.16em;font-size:11px;color:var(--gold)}
 .status{font:10px 'DM Mono';color:#b5a99b;letter-spacing:.08em}
@@ -34,12 +38,10 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
 .vault-wrap{perspective:1000px;position:relative;min-height:450px;display:grid;place-items:center}
 .vault-glow{position:absolute;width:90%;height:75%;border-radius:50%;background:#9f211a24;filter:blur(48px)}
 .vault{width:min(100%,440px);aspect-ratio:1;border-radius:50%;position:relative;background:radial-gradient(circle at 50% 50%,#35302a 0 4%,#171513 5% 10%,#5c5145 10.5% 11.5%,#151312 12% 22%,#342b24 22.5% 24%,#0b0b0b 24.5% 43%,#4e4235 43.5% 45%,#161412 45.5% 52%,#4a382a 52.5% 54%,#090909 55%);box-shadow:0 35px 70px #000,0 0 0 7px #211a15,0 0 0 10px #806447,0 0 0 14px #191512,inset 0 0 38px #000;transform:rotateY(-8deg);animation:breath 7s ease-in-out infinite}
-.vault:before{content:"";position:absolute;inset:14%;border:2px solid #8c7558;border-radius:50%;box-shadow:inset 0 0 0 8px #191512,inset 0 0 0 10px #5b4937,0 0 20px #000}
-.vault:after{content:"";position:absolute;inset:28%;border:1px solid #b99a6a;border-radius:50%;background:radial-gradient(circle,#241b15 0,#090909 70%);box-shadow:inset 0 0 35px #000}
 .wheel{position:absolute;z-index:2;inset:35%;border:5px solid #927858;border-radius:50%;background:radial-gradient(circle,#5b4934,#15110e 65%);box-shadow:0 0 0 5px #171310,inset 0 0 20px #000}
-.wheel:before{content:"";position:absolute;left:calc(50% - 3px);top:-22%;width:6px;height:144%;background:linear-gradient(90deg,#4a3929,#d2b080,#3b2b1d);border-radius:4px;box-shadow:0 0 5px #000}
+.wheel:before{content:"";position:absolute;left:calc(50% - 3px);top:-22%;width:6px;height:144%;background:linear-gradient(90deg,#4a3929,#d2b080,#3b2b1d);border-radius:4px}
 .wheel:after{content:"";position:absolute;top:calc(50% - 3px);left:-22%;height:6px;width:144%;background:linear-gradient(#4a3929,#d2b080,#3b2b1d);border-radius:4px}
-.bolt{position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#e4c89b,#4b3927 70%);z-index:3;box-shadow:0 2px 3px #000}
+.bolt{position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#e4c89b,#4b3927 70%);z-index:3}
 .vlabel{position:absolute;z-index:4;left:50%;top:17%;transform:translateX(-50%);font:8px 'DM Mono';letter-spacing:.3em;color:#c8a16f;white-space:nowrap}
 .vault-caption{position:absolute;bottom:-6px;text-align:center;font:10px 'DM Mono';letter-spacing:.25em;color:#8c7560}
 .side-note{position:absolute;font:9px 'DM Mono';letter-spacing:.18em;color:#66584b;writing-mode:vertical-rl}
@@ -64,8 +66,6 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
 .features{padding:0;list-style:none;color:#c0b4a7;font-size:12px;line-height:2.4}
 .features li:before{content:'✦';color:var(--gold);margin-right:10px}
 .callout{border-left:2px solid var(--red);padding:13px 17px;background:#a52c260d;color:#a99e91;font-size:11px;line-height:1.8;margin-top:18px}
-.mission-box{border:1px solid #48382b;background:#100d0b;padding:24px}
-.mission-box h3{font:500 22px Cinzel,serif}
 .choices{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
 .choice{background:#17120f;color:#d4c5b2;border:1px solid #4b392b;padding:11px 14px;cursor:pointer;font:11px 'DM Mono'}
 .choice:hover,.choice.selected{border-color:var(--gold);background:#2a1c13}
@@ -77,102 +77,576 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
 .modal-panel h2{font:500 28px Cinzel,serif;margin:12px 0}
 .modal-panel p{color:#b4a79a;font-size:13px;line-height:1.8}
 .close{float:right;background:none;border:1px solid #574536;color:#cbbba8;padding:7px 10px;cursor:pointer}
-.tag{display:inline-block;border:1px solid #4e3b2b;color:#c9a373;padding:6px 9px;font:9px 'DM Mono';letter-spacing:.12em}
-.muted{color:#95897c}
-.hidden{display:none!important}
 @keyframes breath{0%,100%{transform:rotateY(-8deg) scale(1)}50%{transform:rotateY(-4deg) scale(1.012)}}
-@media(max-width:780px){.hero{grid-template-columns:1fr;gap:35px;padding-top:42px;min-height:auto}.hero-copy{order:1}.vault-wrap{order:0;min-height:320px}.vault{width:min(75vw,330px)}.side-note{font-size:7px}.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.pricing{grid-template-columns:1fr}.section{padding:42px 20px}.topbar{padding:18px 20px}.section-head{display:block}.hero p{font-size:14px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
-
-/* PREMIUM REDESIGN LAYER */
-:root{--bg:#070605;--panel:#100d0b;--panel2:#18120e;--line:#5b4632;--gold:#d8b27b;--red:#a42b26;--cream:#f0e7d9;--muted:#b0a294;--green:#9ac49a;--glow:rgba(192,116,60,.16)}
-body{background:radial-gradient(ellipse at 76% 15%,rgba(106,35,24,.22),transparent 32%),radial-gradient(ellipse at 18% 47%,rgba(95,56,31,.13),transparent 34%),linear-gradient(180deg,#080706,#0a0807 45%,#050505);letter-spacing:.005em}
-body:after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")}
-.topbar,.hero,.section,.footer{position:relative;z-index:1}
-.topbar{max-width:1320px;padding:20px 32px;border-bottom-color:#c49a6322}
-.brand-mini{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.22em}
-.brand-mini:before{content:"BL";display:grid;place-items:center;width:29px;height:29px;border:1px solid #c49a6377;color:#e0bf8e;font:11px Cinzel,serif;box-shadow:inset 0 0 14px #c49a6315}
-.status{font-size:9px;letter-spacing:.15em}
-.hero{max-width:1320px;min-height:730px;padding:68px 32px 82px;gap:34px}
-.hero-copy{position:relative}
-.hero-copy:before{content:"FILE NO. 0001  /  CLASSIFICATION: RESTRICTED";display:block;color:#736352;font:9px 'DM Mono';letter-spacing:.19em;margin-bottom:26px}
-.eyebrow{font-size:10px;letter-spacing:.28em}
-.hero h1{font-size:clamp(48px,6.5vw,88px);letter-spacing:.005em;line-height:1.01;margin-top:20px}
-.hero h1 span{background:linear-gradient(100deg,#f3e2c4 0%,#b98c5b 50%,#ead4af 80%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
-.subtitle{font-size:10px;letter-spacing:.31em}
-.hero p{font-size:14px;line-height:2;color:#c0b3a4;max-width:500px}
-.btn{position:relative;overflow:hidden;min-height:47px;padding:15px 20px;letter-spacing:.12em;font-size:10px;box-shadow:0 8px 28px #0006}
-.btn:before{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(100deg,transparent,#fff5,transparent);transition:transform .65s}
-.btn:hover:before{transform:translateX(120%)}
-.btn.secondary{background:linear-gradient(120deg,#100d0b,#0a0807);border-color:#71583d}
-.micro{font-size:9px;letter-spacing:.04em;line-height:2}
-.vault-wrap{min-height:500px;filter:drop-shadow(0 20px 55px #000b)}
-.vault-glow{background:radial-gradient(circle,#9d38242b,transparent 67%);filter:blur(35px);animation:glowpulse 5s ease-in-out infinite}
-.vault{width:min(100%,470px);background:radial-gradient(circle at 36% 27%,#4d4135 0,#201b17 9%,#080808 22%,#29231d 23%,#0a0908 34%,#47382a 35%,#11100e 38%,#070707 51%,#776044 52%,#171310 54%,#080807 61%);box-shadow:0 40px 80px #000,0 0 0 2px #0c0b09,0 0 0 5px #4b3a29,0 0 0 8px #0d0b09,0 0 0 10px #b18a5c66,inset 0 0 60px #000,inset 0 0 0 1px #e6c99a2b;animation:breath 8s ease-in-out infinite}
-.vault:before{border-color:#b79a70;box-shadow:inset 0 0 0 8px #17120f,inset 0 0 0 10px #7c6142,inset 0 0 0 12px #0a0908,0 0 28px #000}
-.vault:after{border-color:#d4b17c;background:radial-gradient(circle at 40% 35%,#57402b 0,#21180f 28%,#090807 72%);box-shadow:inset 0 0 30px #000,0 0 20px #c49a6312}
-.wheel{border-color:#d0ac78;background:radial-gradient(circle at 35% 28%,#826747,#1c1711 65%);box-shadow:0 0 0 5px #0d0b09,0 0 0 7px #92714a,inset 0 0 20px #000}
-.wheel:before,.wheel:after{background:linear-gradient(90deg,#3c2b1c,#f0d3a0 45%,#80603c 65%,#24180f);box-shadow:0 0 9px #000}
-.bolt{width:11px;height:11px;background:radial-gradient(circle at 30% 25%,#fff0c9,#b18a5a 35%,#302115 78%);box-shadow:0 2px 5px #000,0 0 6px #d5b47a20}
-.vlabel{font-size:7px;letter-spacing:.38em}
-.vault-caption{font-size:9px;letter-spacing:.32em;color:#b39a7b}
-.side-note{color:#8a7560;font-size:8px;letter-spacing:.22em}
-.section{max-width:1320px;padding:65px 32px}
-.section-head{margin-bottom:30px}
-.section h2{font-size:clamp(28px,3.7vw,44px);line-height:1.28;letter-spacing:.01em}
+@media(max-width:780px){.hero{grid-template-columns:1fr;gap:35px;padding-top:42px;min-height:auto}.hero-copy{order:1}.vault-wrap{order:0;min-height:320px}.vault{width:min(75vw,330px)}.grid3,.grid2,.pricing{grid-template-columns:1fr}.section{padding:42px 20px}.topbar{padding:18px 20px}}
 </style>
 </head>
-</html>
-.section-intro{max-width:490px;font-size:12px;line-height:1.9}
-.file-card,.mission-box{border-color:#6a4d32;background:linear-gradient(145deg,rgba(27,20,15,.94),rgba(9,8,7,.98));box-shadow:inset 0 1px #ffffff08,0 16px 38px #0002;transition:transform .3s,border-color .3s,box-shadow .3s}
-.file-card{padding:26px;min-height:230px}
-.file-card:hover{transform:translateY(-4px);border-color:#c19a67;box-shadow:inset 0 1px #ffffff10,0 18px 45px #0008,0 0 24px #c49a6309}
-.file-card:after{border-color:#9b71463a;box-shadow:0 0 0 15px #ffffff02,0 0 0 30px #ffffff01}
-.file-no{font-size:9px;letter-spacing:.2em}
-.file-card h3{font-size:22px;line-height:1.4}
-.file-card p{font-size:12px;line-height:1.9;min-height:54px}
-.text-link{font-size:9px;letter-spacing:.16em}
-.lock{font-size:9px;letter-spacing:.16em}
-.pricing{position:relative;overflow:hidden;border-color:#947047;background:radial-gradient(ellipse at 0 0,#5e351b38,transparent 55%),linear-gradient(125deg,#1b130e,#0a0807 70%);padding:clamp(24px,4vw,46px);box-shadow:0 22px 60px #0005,inset 0 1px #f8e2bb12}
-.pricing:before{content:"LIFETIME ACCESS";position:absolute;top:17px;right:20px;font:8px 'DM Mono';letter-spacing:.22em;color:#b99a70;border:1px solid #9d7a4b55;padding:8px 10px}
-.price{font-size:clamp(44px,5vw,58px);text-shadow:0 0 28px #c49a6320}
-.features{font-size:12px;line-height:2.6}
-.features li:before{content:'✦';color:#e0bb83}
-.callout{background:#6b211a12;border-left-color:#b94a3d}
-.mission-box{padding:clamp(20px,3vw,32px)}
-.mission-box h3{font-size:25px}
-.choice{transition:.2s;border-color:#59432e}
-.choice:hover,.choice.selected{border-color:#dfb982;background:linear-gradient(135deg,#332216,#17100b);box-shadow:0 0 18px #c49a6310}
-.result{border-color:#a57c4e;background:linear-gradient(120deg,#17100b,#090807);box-shadow:inset 3px 0 #c49a63}
-.footer{font-size:9px;line-height:2;letter-spacing:.14em;padding:35px 20px}
-.modal{backdrop-filter:blur(12px)}
-.modal-panel{border-color:#9c7447;background:radial-gradient(ellipse at top,#2a1a10,#100c09 65%);box-shadow:0 25px 100px #000,0 0 0 1px #d5b17b12}
-.tag{border-color:#8b6844;color:#e0bd8a}
-.scroll-progress{position:fixed;z-index:20;top:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#8d3027,#e4c18a);box-shadow:0 0 10px #c49a6388}
-@keyframes glowpulse{0%,100%{opacity:.5;transform:scale(.95)}50%{opacity:1;transform:scale(1.08)}}
-@media(max-width:780px){.topbar{padding:16px 18px}.hero{padding:35px 20px 48px;gap:20px}.hero-copy:before{margin-bottom:18px;font-size:8px}.hero h1{font-size:clamp(42px,12vw,66px)}.vault-wrap{min-height:295px}.vault{width:min(72vw,310px)}.section{padding:44px 20px}.file-card{min-height:unset;padding:22px}.pricing:before{position:static;display:inline-block;margin-bottom:18px}.section-head{margin-bottom:22px}.actions .btn{flex:1 1 145px}.side-note{font-size:6px}}
-</style></head>
 <body>
-<div class="scroll-progress" id="scrollProgress"></div>
-<header class="topbar"><div class="brand-mini mono">TBL // THE HIDDEN HUMAN ARCHIVE</div><div class="status"><i></i> ARCHIVE SYSTEM // PREVIEW</div></header>
+
+<header class="topbar">
+  <div class="brand-mini mono">TBL // THE HIDDEN HUMAN ARCHIVE</div>
+  <div class="status"><i></i> ARCHIVE SYSTEM // ACTIVE • VAULT REC: <span id="counterDisplay" class="text-amber-500 font-bold">#000</span></div>
+</header>
+
 <main>
-<section class="hero" id="top"><div class="hero-copy"><div class="eyebrow">A private world of mysteries</div><h1 class="serif">THE BLACK <span>LEDGER</span></h1><div class="subtitle">THE HIDDEN HUMAN ARCHIVE</div><p>Some stories are buried. Some statements don't match. And every choice leaves a trace. Enter a fictional world of hidden files, psychological scenarios, and investigations where the final answer is yours to uncover.</p><div class="actions"><a class="btn" href="#preview">Open File 001</a><a class="btn secondary" href="#membership">Unlock the Archive · ₹599</a></div><div class="micro">FICTIONAL MYSTERIES · INTERACTIVE CHOICES · LIFETIME MEMBERSHIP OFFER<br>Preview version — payment is not connected yet.</div></div>
-<div class="vault-wrap" aria-label="Animated vault illustration"><div class="vault-glow"></div><span class="side-note left">MYSTERIES • MOTIVES • CONSEQUENCES</span><div class="vault"><span class="vlabel">ARCHIVE ACCESS // RESTRICTED</span><div class="wheel"></div><span class="bolt" style="left:22%;top:50%"></span><span class="bolt" style="left:50%;top:22%"></span><span class="bolt" style="left:78%;top:50%"></span><span class="bolt" style="left:50%;top:78%"></span><span class="bolt" style="left:30%;top:30%"></span><span class="bolt" style="left:70%;top:30%"></span><span class="bolt" style="left:30%;top:70%"></span><span class="bolt" style="left:70%;top:70%"></span></div><span class="side-note right">SOME FILES SHOULD NEVER BE RUSHED</span><div class="vault-caption">AUTHORIZED BY CURIOSITY</div></div></section>
-<section class="section" id="preview"><div class="section-head"><div><div class="eyebrow">Free access // file 001</div><h2>The Unsent Letter</h2></div><div class="section-intro">A small taste of the archive. Read the evidence, choose what you believe, and reveal one possible interpretation. This is an original fictional scenario—not a real case.</div></div><div class="grid2"><article class="file-card"><div class="file-no">CASE FILE // 001-A</div><h3>Evidence recovered</h3><p>At 11:48 PM, a letter was found beneath a locked office door. It was dated three days earlier, but the ink on the final line was still wet. The envelope had no stamp.</p><p><strong style="color:#d8c5ae">Fragment:</strong> “If you read this, then someone has already told you what happened. Ask them why they left out the last minute.”</p><button class="text-link" onclick="openModal('letter')">Read the full file ↗</button></article><article class="file-card"><div class="file-no">YOUR FIRST DECISION</div><h3>What stands out?</h3><p>Choose the detail you would investigate first. There is no perfect personality label here—only a clue about how you approach uncertainty.</p><div class="choices" id="firstChoices"><button class="choice" onclick="pickFirst(this,'time')">The impossible timing</button><button class="choice" onclick="pickFirst(this,'message')">The missing minute</button><button class="choice" onclick="pickFirst(this,'access')">The locked door</button></div><div id="firstResult" class="result" aria-live="polite"></div></article></div></section>
-<section class="section" id="rooms"><div class="section-head"><div><div class="eyebrow">Inside the archive</div><h2>Four rooms. One hidden pattern.</h2></div><div class="section-intro">The full membership experience is planned around original stories, interactive evidence, and choices that change what you uncover.</div></div><div class="grid3"><article class="file-card"><div class="file-no">ROOM 01 / FILE STORAGE</div><h3>The Archive</h3><p>Explore original mystery files, timelines, letters, and conflicting accounts. Collect clues as you investigate.</p><span class="lock">MEMBERS AREA · PLANNED</span></article><article class="file-card"><div class="file-no">ROOM 02 / SELF-REFLECTION</div><h3>Ghost Mirror</h3><p>Scenario-based questions explore your decision style. For reflection and entertainment—not a clinical assessment.</p><span class="lock">MEMBERS AREA · PLANNED</span></article><article class="file-card"><div class="file-no">ROOM 03 / EVIDENCE BOARD</div><h3>Investigation Chamber</h3><p>Compare witness statements, find contradictions, and decide which evidence deserves another look.</p><span class="lock">MEMBERS AREA · PLANNED</span></article><article class="file-card"><div class="file-no">ROOM 04 / BRANCHING STORY</div><h3>Choice Engine</h3><p>Your decisions open different story branches and lead to multiple fictional endings.</p><span class="lock">MEMBERS AREA · PLANNED</span></article><article class="file-card"><div class="file-no">FINAL RECORD</div><h3>The Final Ledger</h3><p>Bring the clues together and unlock a finale shaped by the path you chose.</p><span class="lock">MEMBERS AREA · PLANNED</span></article><article class="file-card"><div class="file-no">PERSONAL PROGRESS</div><h3>Your Vault</h3><p>A planned member area to save progress, discovered clues, and completed missions across visits.</p><span class="lock">MEMBERS AREA · PLANNED</span></article></div></section>
-<section class="section" id="membership"><div class="pricing"><div><div class="eyebrow">One payment · Lifetime membership</div><h2 class="serif">Unlock the hidden archive.</h2><div class="price">₹599<small>ONE-TIME MEMBERSHIP PRICE</small></div><p class="section-intro">A planned single-purchase membership for the initial archive and the features explicitly included in the membership terms.</p><div class="callout">This is currently a visual prototype. The checkout button is not connected to Cashfree, and no payment will be collected from this page yet.</div></div><div><ul class="features"><li>Original fictional mystery files</li><li>Interactive clue-based missions</li><li>Scenario-based Ghost Mirror</li><li>Branching choices and endings</li><li>Member progress and saved clues (after backend setup)</li><li>Mobile-friendly experience</li></ul><button class="btn" style="width:100%;margin-top:14px" onclick="showPaymentNotice()">Continue to secure checkout · ₹599</button><p class="micro">Access must be granted only after the payment provider confirms a successful transaction on the server. Lifetime access terms and future updates should be stated clearly before launch.</p></div></div></section>
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <div class="eyebrow">A private world of mysteries</div>
+      <h1 class="serif">THE BLACK <span>LEDGER</span></h1>
+      <div class="subtitle">THE HIDDEN HUMAN ARCHIVE</div>
+      <p>Some stories are buried. Some statements don't match. And every choice leaves a trace. Enter a fictional world of hidden files, psychological scenarios, and investigations where the final answer is yours to uncover.</p>
+      <div class="actions">
+        <a class="btn" href="#preview">Open File 001</a>
+        <a class="btn secondary" href="#membership">Unlock the Archive · ₹599</a>
+      </div>
+      <div class="micro">FICTIONAL MYSTERIES · INTERACTIVE CHOICES · LIFETIME MEMBERSHIP OFFER</div>
+    </div>
+    <div class="vault-wrap" aria-label="Animated vault illustration">
+      <div class="vault-glow"></div>
+      <span class="side-note left">MYSTERIES • MOTIVES • CONSEQUENCES</span>
+      <div class="vault">
+        <span class="vlabel">ARCHIVE ACCESS // RESTRICTED</span>
+        <div class="wheel"></div>
+        <span class="bolt" style="left:22%;top:50%"></span>
+        <span class="bolt" style="left:50%;top:22%"></span>
+        <span class="bolt" style="left:78%;top:50%"></span>
+        <span class="bolt" style="left:50%;top:78%"></span>
+        <span class="bolt" style="left:30%;top:30%"></span>
+        <span class="bolt" style="left:70%;top:30%"></span>
+        <span class="bolt" style="left:30%;top:70%"></span>
+        <span class="bolt" style="left:70%;top:70%"></span>
+      </div>
+      <span class="side-note right">SOME FILES SHOULD NEVER BE RUSHED</span>
+      <div class="vault-caption">AUTHORIZED BY CURIOSITY</div>
+    </div>
+  </section>
+
+  <section class="section" id="preview">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Free access // file 001</div>
+        <h2>The Unsent Letter</h2>
+      </div>
+      <div class="section-intro">A small taste of the archive. Read the evidence, choose what you believe, and reveal one possible interpretation. This is an original fictional scenario.</div>
+    </div>
+    <div class="grid2">
+      <article class="file-card">
+        <div class="file-no">CASE FILE // 001-A</div>
+        <h3>Evidence recovered</h3>
+        <p>At 11:48 PM, a letter was found beneath a locked office door. It was dated three days earlier, but the ink on the final line was still wet. The envelope had no stamp.</p>
+        <p><strong style="color:#d8c5ae">Fragment:</strong> “If you read this, then someone has already told you what happened. Ask them why they left out the last minute.”</p>
+        <button class="text-link" onclick="openModal('letter')">Read the full file ↗</button>
+      </article>
+      <article class="file-card">
+        <div class="file-no">YOUR FIRST DECISION</div>
+        <h3>What stands out?</h3>
+        <p>Choose the detail you would investigate first. There is no perfect personality label here—only a clue about how you approach uncertainty.</p>
+        <div class="choices" id="firstChoices">
+          <button class="choice" onclick="pickFirst(this,'time')">The impossible timing</button>
+          <button class="choice" onclick="pickFirst(this,'message')">The missing minute</button>
+          <button class="choice" onclick="pickFirst(this,'access')">The locked door</button>
+        </div>
+        <div id="firstResult" class="result" aria-live="polite"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="rooms">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Inside the archive</div>
+        <h2>Four rooms. One hidden pattern.</h2>
+      </div>
+      <div class="section-intro">The full membership experience is built around original stories, interactive evidence, and choices that change what you uncover.</div>
+    </div>
+    <div class="grid3">
+      <article class="file-card"><div class="file-no">ROOM 01 / FILE STORAGE</div><h3>The Archive</h3><p>Explore original mystery files, timelines, letters, and conflicting accounts. Collect clues as you investigate.</p><span class="lock">MEMBERS AREA</span></article>
+      <article class="file-card"><div class="file-no">ROOM 02 / SELF-REFLECTION</div><h3>Ghost Mirror</h3><p>Scenario-based questions explore your decision style. For reflection and entertainment.</p><span class="lock">MEMBERS AREA</span></article>
+      <article class="file-card"><div class="file-no">ROOM 03 / EVIDENCE BOARD</div><h3>Investigation Chamber</h3><p>Compare witness statements, find contradictions, and decide which evidence deserves another look.</p><span class="lock">MEMBERS AREA</span></article>
+      <article class="file-card"><div class="file-no">ROOM 04 / BRANCHING STORY</div><h3>Choice Engine</h3><p>Your decisions open different story branches and lead to multiple fictional endings.</p><span class="lock">MEMBERS AREA</span></article>
+      <article class="file-card"><div class="file-no">FINAL RECORD</div><h3>The Final Ledger</h3><p>Bring the clues together and unlock a finale shaped by the path you chose.</p><span class="lock">MEMBERS AREA</span></article>
+      <article class="file-card"><div class="file-no">PERSONAL PROGRESS</div><h3>Your Vault</h3><p>A secure member area to save progress, discovered clues, and completed missions across visits.</p><span class="lock">MEMBERS AREA</span></article>
+    </div>
+  </section>
+
+  <section class="section" id="submit-section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Secure gateway</div>
+        <h2>Lock Your Entry & Unlock Live Stream</h2>
+      </div>
+      <div class="section-intro">Submit your note or trace, pay ₹599 via UPI, and enter your 12-digit UTR below to instantly verify your lifetime access.</div>
+    </div>
+    
+    <div class="pricing" style="grid-template-columns: 1fr;">
+      <div id="vaultStage">
+        <div class="relative mb-4">
+          <textarea id="confessionInput" rows="4" maxlength="1000" placeholder="Apna unsaid sach, galti ya raaz yahan likho..." class="w-full bg-neutral-950/90 border border-neutral-800 rounded-lg p-3.5 text-sm focus:border-red-600 focus:outline-none text-white resize-none"></textarea>
+          <div class="flex justify-between text-[10px] mono text-neutral-500 mt-1.5 px-1">
+            <span>SANITIZER: ACTIVE</span><span id="charCount">0 / 1000</span>
+          </div>
+        </div>
+
+        <div id="stepInitiate">
+          <button onclick="openPaymentModal()" class="btn" style="width:100%">UNLOCK ARCHIVE & VAULT — ₹599</button>
+          <p class="micro text-center mt-2">Instant QR & 1-Tap UPI (PhonePe / GPay / Paytm / BHIM)</p>
+        </div>
+
+        <div id="stepVerify" class="hidden flex-col gap-3 mt-4 pt-4 border-t border-neutral-800">
+          <p class="text-xs text-amber-200/90 mono font-semibold">Payment Completed?</p>
+          <p class="text-[11px] text-neutral-400">Enter the 12-digit UPI Reference / UTR Number from your payment app screen:</p>
+          <input type="text" id="utrInput" inputmode="numeric" maxlength="12" placeholder="Enter 12-digit UTR" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-3 text-xs text-white mono focus:border-red-500 focus:outline-none tracking-widest">
+          <button id="verifyBtn" onclick="submitUtrForVerification()" class="btn" style="width:100%; background:var(--red); border-color:#d43b2d; color:#fff">SUBMIT FOR VERIFICATION</button>
+          <p id="verifyMsg" class="text-[10px] text-center text-neutral-400 mt-1 mono hidden"></p>
+        </div>
+
+        <div id="pendingBox" class="hidden border border-yellow-900/60 bg-neutral-950 p-6 rounded-lg mono text-center flex flex-col items-center mt-4">
+          <div class="text-[10px] text-yellow-500 tracking-widest uppercase mb-1">● VERIFICATION IN PROGRESS</div>
+          <h2 class="text-base font-bold text-white uppercase tracking-wider mb-2" style="font-size:18px">ENTRY PENDING</h2>
+          <p id="pollStatus" class="text-xs text-neutral-400 mb-2">Waiting for automated clearance...</p>
+          <div id="pendingNode" class="text-[11px] text-yellow-500 mono mt-1">NODE // PENDING</div>
+        </div>
+
+        <div id="accessBox" class="hidden border border-green-900/60 bg-neutral-950 p-6 rounded-lg mono text-center flex flex-col items-center mt-4">
+          <div class="text-[10px] text-green-500 tracking-widest uppercase mb-1">● ACCESS GRANTED</div>
+          <h2 class="text-lg font-bold text-white uppercase tracking-wider mb-1" id="unlockedPersona" style="font-size:20px">THE PRAGMATIC SINNER</h2>
+          <p class="text-xs text-neutral-400 mb-3" id="unlockedNode">NODE // 000001</p>
+          <p class="text-xs text-neutral-300">Your entry is permanently sealed. Full archive and live stream unlocked.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Realtime feed</div>
+        <h2>Live Vault Stream</h2>
+      </div>
+      <div id="lockBadge" class="tag" style="background:#2a1c13; color:#c49a63;">LOCKED</div>
+    </div>
+    <div class="file-card">
+      <div class="flex flex-col gap-3 text-xs" id="feedList">
+        <p class="text-neutral-500 text-[11px] mono">Connecting to archive feed...</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="membership">
+    <div class="pricing">
+      <div>
+        <div class="eyebrow">One payment · Lifetime membership</div>
+        <h2 class="serif">Unlock the hidden archive.</h2>
+        <div class="price">₹599<small>ONE-TIME MEMBERSHIP PRICE</small></div>
+        <p class="section-intro">A secure single-purchase membership for the initial archive and all included features.</p>
+        <div class="callout">Instant secure entry upon automated server verification.</div>
+      </div>
+      <div>
+        <ul class="features">
+          <li>Original fictional mystery files</li>
+          <li>Interactive clue-based missions</li>
+          <li>Scenario-based Ghost Mirror</li>
+          <li>Branching choices and endings</li>
+          <li>Live Vault Stream access</li>
+          <li>Mobile-friendly experience</li>
+        </ul>
+        <a href="#submit-section" class="btn" style="width:100%;margin-top:14px;text-align:center">Secure Your Access · ₹599</a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="footer">THE BLACK LEDGER · THE HIDDEN HUMAN ARCHIVE<br><span style="display:inline-block;margin-top:10px">A fictional interactive experience. No fake live member counts or unverified security claims.</span></footer>
-<div class="modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="if(event.target===this)closeModal()"><div class="modal-panel"><button class="close" onclick="closeModal()">CLOSE ×</button><div class="eyebrow">Recovered document // 001</div><h2 id="modalTitle">The Unsent Letter</h2><p>The office door was locked from the inside. The window was shut. No sign of forced entry appeared in the initial report.</p><p>Three people confirmed hearing the wall clock stop at 11:47 PM. One person claimed the clock had been broken for months. Another insisted they saw light beneath the door at midnight.</p><p>On the back of the letter, in smaller handwriting, was a single question:</p><p style="color:#d7b47e;font-family:Cinzel,serif;font-size:18px">“Who benefits if everyone remembers the same story?”</p><div class="callout">FILE NOTE: All names and events in this experience are fictional. The clues are designed for entertainment and critical thinking.</div><button class="btn" style="margin-top:18px" onclick="closeModal();document.getElementById('firstChoices').scrollIntoView({behavior:'smooth',block:'center'})">Make your decision</button></div></div>
-<div class="modal" id="paymentModal" role="dialog" aria-modal="true" onclick="if(event.target===this)closePaymentNotice()"><div class="modal-panel"><button class="close" onclick="closePaymentNotice()">CLOSE ×</button><div class="eyebrow">Checkout setup required</div><h2>Payment is not live yet.</h2><p>The ₹599 checkout must be connected to your Cashfree account through a server-side order creation endpoint and verified payment callback/webhook. A frontend-only button cannot safely confirm payment or grant lifetime access.</p><p class="muted">Your existing Firebase project may be reusable for sign-in and saved progress after its database rules and admin permissions are reviewed.</p><button class="btn" onclick="closePaymentNotice()">Understood</button></div></div>
+
+<footer class="footer">
+  THE BLACK LEDGER · THE HIDDEN HUMAN ARCHIVE<br>
+  <span style="display:inline-block;margin-top:10px">Secure node tracking and automated verification system.</span>
+</footer>
+
+<div class="modal" id="storyModal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeModal()">
+  <div class="modal-panel">
+    <button class="close" onclick="closeModal()">CLOSE ×</button>
+    <div class="eyebrow">Recovered document // 001</div>
+    <h2 id="modalTitle">The Unsent Letter</h2>
+    <p>The office door was locked from the inside. The window was shut. No sign of forced entry appeared in the initial report.</p>
+    <p>Three people confirmed hearing the wall clock stop at 11:47 PM. One person claimed the clock had been broken for months. Another insisted they saw light beneath the door at midnight.</p>
+    <p>On the back of the letter, in smaller handwriting, was a single question:</p>
+    <p style="color:#d7b47e;font-family:Cinzel,serif;font-size:18px">“Who benefits if everyone remembers the same story?”</p>
+    <div class="callout">FILE NOTE: All names and events in this experience are fictional. The clues are designed for entertainment and critical thinking.</div>
+    <button onclick="closeModalAndVerify()" class="btn" style="width:100%">I HAVE PAID (ENTER UTR)</button>
+  </div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAlmnaSJmU5FRTcpbmDa6MO0hdUwIeLOZc",
+  authDomain: "blackledger-759c1.firebaseapp.com",
+  databaseURL: "https://blackledger-759c1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "blackledger-759c1",
+  storageBucket: "blackledger-759c1.appspot.com",
+  messagingSenderId: "1064101172402",
+  appId: "1:1064101172402:web:951950dd4e136c44e965eb"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getDatabase(app);
+
+const input = document.getElementById("confessionInput");
+const AMOUNT = 599;
+
+let currentUser = null;
+let statusListener = null;
+let feedListener = null;
+let archiveListener = null;
+let restoreStarted = false;
+
+input.addEventListener("input", () => {
+  document.getElementById("charCount").textContent = `${input.value.length} / 1000`;
+});
+
+async function startAuthentication() {
+  try {
+    await setPersistence(auth, browserLocalPersistence);
+    if (!auth.currentUser) {
+      await signInAnonymously(auth);
+    }
+  } catch (error) {
+    console.error("Authentication error:", error);
+  }
+}
+
+onAuthStateChanged(auth, async user => {
+  if (!user) return;
+  currentUser = user;
+  if (!restoreStarted) {
+    restoreStarted = true;
+    await restorePayment();
+    startRealtimeFeed();
+    startArchiveCounter();
+  }
+});
+
+startAuthentication();
+
+window.openPaymentModal = function() {
+  const text = input.value.trim();
+  if (text.length < 10) {
+    alert("Enter at least 10 characters of your note or trace to proceed.");
+    return;
+  }
+  document.getElementById("payModal").classList.add("open");
+};
+
+window.closePaymentModal = function() {
+  document.getElementById("payModal").classList.remove("open");
+};
+
+window.closeModalAndVerify = function() {
+  document.getElementById("payModal").classList.remove("open");
+  document.getElementById("stepInitiate").classList.add("hidden");
+  document.getElementById("stepVerify").classList.remove("hidden");
+  document.getElementById("stepVerify").classList.add("flex");
+};
+
+function generateRequestId() {
+  if (window.crypto && crypto.randomUUID) {
+    return "REQ_" + crypto.randomUUID().replaceAll("-", "").substring(0, 20).toUpperCase();
+  }
+  return "REQ_" + Date.now() + "_" + Math.random().toString(36).substring(2, 8).toUpperCase();
+}
+
+window.submitUtrForVerification = async function() {
+  const text = input.value.trim();
+  const utr = document.getElementById("utrInput").value.trim();
+  const btn = document.getElementById("verifyBtn");
+  const msg = document.getElementById("verifyMsg");
+
+  if (text.length < 10) {
+    alert("Enter at least 10 characters.");
+    return;
+  }
+  if (!/^\d{12}$/.test(utr)) {
+    alert("Please enter a valid 12-digit UTR.");
+    return;
+  }
+  if (!currentUser) {
+    alert("Secure connection is starting. Please wait.");
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerText = "TRANSMITTING TRACE...";
+  msg.classList.remove("hidden");
+  msg.className = "text-[10px] text-center text-neutral-400 mt-1 mono";
+  msg.innerText = "Sending payment trace securely...";
+
+  try {
+    const requestId = generateRequestId();
+    const requestRef = ref(db, `paymentRequests/${requestId}`);
+    const requestData = {
+      ownerUid: currentUser.uid,
+      utr: utr,
+      confession: text,
+      amount: AMOUNT,
+      status: "PENDING",
+      timestamp: Date.now()
+    };
+
+    await set(requestRef, requestData);
+    localStorage.setItem("bl_requestId", requestId);
+    localStorage.setItem("bl_confession", text);
+    localStorage.setItem("bl_utr", utr);
+
+    showPending(requestId);
+    listenToStatus(requestId);
+  } catch (error) {
+    console.error("Firebase submission error:", error);
+    alert("Submission failed: " + error.message);
+    btn.disabled = false;
+    btn.innerText = "SUBMIT FOR VERIFICATION";
+  }
+};
+
+function showPending(requestId) {
+  document.getElementById("stepInitiate").classList.add("hidden");
+  document.getElementById("stepVerify").classList.remove("hidden");
+  document.getElementById("stepVerify").classList.add("flex");
+  document.getElementById("pendingBox").classList.remove("hidden");
+  document.getElementById("pollStatus").innerText = "Waiting for automated clearance...";
+  document.getElementById("pendingNode").innerText = "NODE // PENDING";
+
+  const msg = document.getElementById("verifyMsg");
+  msg.className = "text-[10px] text-center text-yellow-500 mt-1 mono";
+  msg.classList.remove("hidden");
+  msg.innerText = "Waiting for automated clearance...";
+
+  const btn = document.getElementById("verifyBtn");
+  btn.disabled = true;
+  btn.innerText = "VERIFICATION PENDING";
+}
+
+function listenToStatus(requestId) {
+  if (statusListener) {
+    statusListener();
+    statusListener = null;
+  }
+  const statusRef = ref(db, `paymentRequests/${requestId}/status`);
+  statusListener = onValue(statusRef, async snapshot => {
+    const status = snapshot.val();
+    if (status === "APPROVED") {
+      const fullRef = ref(db, `paymentRequests/${requestId}`);
+      const fullSnap = await get(fullRef);
+      const data = fullSnap.val() || {};
+      showVerified({
+        nodeId: data.nodeNumber || null,
+        persona: data.persona || "THE PRAGMATIC SINNER"
+      });
+    } else if (status === "REJECTED") {
+      showRejected();
+    } else {
+      showPending(requestId);
+    }
+  });
+}
+
+function showVerified(data) {
+  document.getElementById("pendingBox").classList.add("hidden");
+  document.getElementById("stepInitiate").classList.add("hidden");
+  document.getElementById("stepVerify").classList.add("hidden");
+  document.getElementById("stepVerify").classList.remove("flex");
+  document.getElementById("accessBox").classList.remove("hidden");
+
+  const node = data.nodeId || "PENDING";
+  document.getElementById("unlockedNode").textContent = `NODE // ${node}`;
+  document.getElementById("unlockedPersona").textContent = data.persona || "THE PRAGMATIC SINNER";
+
+  localStorage.setItem("bl_verified", "true");
+  startRealtimeFeed();
+  startArchiveCounter();
+
+  window.scrollTo({
+    top: document.getElementById("accessBox").offsetTop - 20,
+    behavior: "smooth"
+  });
+}
+
+function showRejected() {
+  if (statusListener) {
+    statusListener();
+    statusListener = null;
+  }
+  localStorage.removeItem("bl_requestId");
+  localStorage.removeItem("bl_confession");
+  localStorage.removeItem("bl_utr");
+  localStorage.removeItem("bl_verified");
+
+  document.getElementById("pendingBox").classList.add("hidden");
+  document.getElementById("stepVerify").classList.add("hidden");
+  document.getElementById("stepVerify").classList.remove("flex");
+  document.getElementById("stepInitiate").classList.remove("hidden");
+  document.getElementById("utrInput").value = "";
+
+  const btn = document.getElementById("verifyBtn");
+  btn.disabled = false;
+  btn.innerText = "SUBMIT FOR VERIFICATION";
+
+  const msg = document.getElementById("verifyMsg");
+  msg.className = "text-[10px] text-center text-red-500 mt-1 mono";
+  msg.classList.remove("hidden");
+  msg.innerText = "Payment could not be verified. Please make a new payment.";
+}
+
+async function restorePayment() {
+  const requestId = localStorage.getItem("bl_requestId");
+  if (!requestId || !currentUser) return;
+
+  const savedConfession = localStorage.getItem("bl_confession");
+  if (savedConfession) {
+    input.value = savedConfession;
+    document.getElementById("charCount").textContent = `${savedConfession.length} / 1000`;
+  }
+
+  const savedUtr = localStorage.getItem("bl_utr");
+  if (savedUtr) {
+    document.getElementById("utrInput").value = savedUtr;
+  }
+
+  const requestRef = ref(db, `paymentRequests/${requestId}`);
+  onValue(requestRef, snapshot => {
+    const data = snapshot.val();
+    if (!data) return;
+    if (data.ownerUid && data.ownerUid !== currentUser.uid) return;
+
+    if (data.status === "PENDING") {
+      showPending(requestId);
+    } else if (data.status === "APPROVED") {
+      showVerified({
+        nodeId: data.nodeNumber || "PENDING",
+        persona: data.persona || "THE PRAGMATIC SINNER"
+      });
+    } else if (data.status === "REJECTED") {
+      showRejected();
+    }
+  });
+  listenToStatus(requestId);
+}
+
+function startArchiveCounter() {
+  if (archiveListener) {
+    archiveListener();
+    archiveListener = null;
+  }
+  const counterRef = ref(db, "ledgerCounter");
+  onValue(counterRef, snapshot => {
+    const total = Number(snapshot.val() || 0);
+    document.getElementById("counterDisplay").textContent = "#" + String(total).padStart(3, "0");
+  }, error => {
+    console.error("Archive counter error:", error);
+  });
+}
+
+function startRealtimeFeed() {
+  if (feedListener) {
+    feedListener();
+    feedListener = null;
+  }
+  const feedRef = ref(db, "publicFeed");
+  onValue(feedRef, snapshot => {
+    const feed = document.getElementById("feedList");
+    const badge = document.getElementById("lockBadge");
+
+    const isVerified = localStorage.getItem("bl_verified") === "true";
+    const ownRequestId = localStorage.getItem("bl_requestId");
+
+    if (isVerified) {
+      badge.textContent = "UNLOCKED";
+      badge.style.background = "#1b2a1c";
+      badge.style.color = "#8fba91";
+    } else {
+      badge.textContent = "LOCKED";
+      badge.style.background = "#2a1c13";
+      badge.style.color = "#c49a63";
+    }
+
+    feed.replaceChildren();
+
+    if (!snapshot.exists()) {
+      const p = document.createElement("p");
+      p.className = "text-neutral-500 text-[11px] mono";
+      p.textContent = "No approved entries yet. Be the first.";
+      feed.appendChild(p);
+      return;
+    }
+
+    const data = snapshot.val();
+    const entries = Object.entries(data).map(([id, val]) => ({ id, ...val })).filter(entry => entry.status === "APPROVED" && entry.confession);
+
+    entries.sort((a, b) => (b.approvedAt || b.reviewedAt || b.timestamp || 0) - (a.approvedAt || a.reviewedAt || a.timestamp || 0));
+
+    let count = 0;
+    for (const entry of entries) {
+      count++;
+      const itemDiv = document.createElement("div");
+      const isOwn = entry.id === ownRequestId;
+
+      itemDiv.className = isOwn ?
+        "border border-green-800 bg-green-950/20 p-3 rounded text-[11px] mono" :
+        "border border-neutral-800 bg-neutral-900/40 p-3 rounded text-[11px] mono";
+
+      const headerRow = document.createElement("div");
+      headerRow.className = "flex justify-between text-neutral-500 mb-1 text-[9px]";
+
+      const nodeLabel = entry.nodeNumber ? `NODE // ${entry.nodeNumber}` : "NODE // UNKNOWN";
+      const ownerLabel = isOwn ? "YOUR ENTRY" : "VERIFIED TRACE";
+
+      headerRow.innerHTML = `<span>${nodeLabel}</span><span>${ownerLabel}</span>`;
+      itemDiv.appendChild(headerRow);
+
+      if (isOwn) {
+        const ownBadge = document.createElement("div");
+        ownBadge.className = "text-[9px] text-green-500 mb-2 uppercase tracking-wider";
+        ownBadge.textContent = "● YOUR APPROVED ENTRY";
+        itemDiv.appendChild(ownBadge);
+      }
+
+      const contentP = document.createElement("p");
+      contentP.className = "leading-relaxed text-xs";
+
+      if (isVerified) {
+        contentP.classList.add("text-neutral-300");
+        contentP.textContent = `"${entry.confession}"`;
+      } else {
+        contentP.classList.add("blurred", "text-neutral-400");
+        contentP.textContent = `"${entry.confession}"`;
+      }
+
+      itemDiv.appendChild(contentP);
+      feed.appendChild(itemDiv);
+    }
+
+    if (count === 0) {
+      const p = document.createElement("p");
+      p.className = "text-neutral-500 text-[11px] mono";
+      p.textContent = "Waiting for approved archive entries...";
+      feed.appendChild(p);
+    }
+  }, error => {
+    console.error("Realtime public feed error:", error);
+    const feed = document.getElementById("feedList");
+    feed.replaceChildren();
+    const p = document.createElement("p");
+    p.className = "text-red-500 text-[11px] mono";
+    p.textContent = "Archive connection unavailable.";
+    feed.appendChild(p);
+  });
+}
+</script>
+
 <script>
 function pickFirst(btn,type){document.querySelectorAll('#firstChoices .choice').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');const texts={time:'You noticed the timeline first. In this story, timestamps may be clues—but verify whether the clock itself can be trusted.',message:'You focused on what was omitted. Missing information can be useful, but an omission alone does not prove a cover-up.',access:'You started with access and opportunity. Check who had keys, but do not assume that access means guilt.'};const box=document.getElementById('firstResult');box.textContent=texts[type];box.style.display='block'}
-function openModal(){document.getElementById('storyModal').classList.add('open');document.body.style.overflow='hidden'}
-function closeModal(){document.getElementById('storyModal').classList.remove('open');document.body.style.overflow=''}
-function showPaymentNotice(){document.getElementById('paymentModal').classList.add('open');document.body.style.overflow='hidden'}
-function closePaymentNotice(){document.getElementById('paymentModal').classList.remove('open');document.body.style.overflow=''}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closePaymentNotice()}});
-window.addEventListener('scroll',()=>{const el=document.getElementById('scrollProgress');if(el){const max=document.documentElement.scrollHeight-window.innerHeight;el.style.width=(max>0?(window.scrollY/max)*100:0)+'%';}},{passive:true});
+function openModal(){document.getElementById('storyModal').classList.add('open');document.body.style.overflow='hidden'}function closeModal(){document.getElementById('storyModal').classList.remove('open');document.body.style.overflow=''}
 </script>
 </body>
 </html>
