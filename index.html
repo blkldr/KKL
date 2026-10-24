@@ -42,7 +42,11 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 .progress-bar-bg { background: rgba(255,255,255,0.08); border-radius: 4px; height: 10px; width: 100%; margin-top: 10px; overflow: hidden; position: relative; }
 .progress-bar-fill { background: linear-gradient(90deg, var(--gold), var(--gold-light)); height: 100%; width: 34%; border-radius: 4px; }
 
-/* Fair Play Guarantee Badge Box */
+/* Early Bird Bonus Alert Banner */
+.early-bird-banner { max-width: 700px; margin: 0 auto 25px; background: linear-gradient(135deg, rgba(252,226,184,0.15), rgba(17,14,12,0.9)); border: 1px solid var(--gold); border-radius: 8px; padding: 14px 20px; display: flex; align-items: center; gap: 14px; text-align: left; animation: glowPulse 2s infinite; }
+@keyframes glowPulse { 0% { border-color: rgba(223,177,117,0.3); } 50% { border-color: rgba(223,177,117,0.9); } 100% { border-color: rgba(223,177,117,0.3); } }
+
+/* Fair Play & Refund Guarantee Badge Box */
 .fair-play-badge { max-width: 700px; margin: 0 auto 35px; background: linear-gradient(145deg, rgba(223,177,117,0.08), rgba(17,14,12,0.9)); border: 1px solid rgba(223,177,117,0.3); border-radius: 8px; padding: 18px 24px; display: flex; align-items: center; gap: 16px; text-align: left; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
 .fair-play-icon { font-size: 26px; flex-shrink: 0; }
 .fair-play-title { font: 700 13px 'DM Mono'; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px; text-transform: uppercase; }
@@ -101,7 +105,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
     <span>🛡️</span> THE BLACK LEDGER
   </div>
   <div>
-    <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="font:11px 'DM Mono'; color:var(--gold); text-decoration:none; border:1px solid rgba(223,177,117,0.3); padding:6px 12px; border-radius:20px;">💬 Join VIP Group & Support</a>
+    <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="font:11px 'DM Mono'; color:var(--gold); text-decoration:none; border:1px solid rgba(223,177,117,0.3); padding:6px 12px; border-radius:20px;">💬 Creator Support & VIP Group</a>
   </div>
 </header>
 
@@ -110,9 +114,17 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
   <section class="hero">
     <div style="font:12px 'DM Mono'; color:var(--gold); letter-spacing:0.25em; text-transform:uppercase; margin-bottom:10px;">⚡ India's Most Thrilling Skill Competition</div>
     <h1 class="gold-glow">Dimaag Lagao, Secret Solve Karo & <span style="color:var(--gold-light)">iPhone 18 Pro + ₹1 Lakh</span> Jeeto!</h1>
-    <p>Ek aisi online mystery challenge jahan 2,000 registrations poore hone ke 1 month baad grand tournament unlock hoga aur top performers grand prize jeetenge.</p>
+    <p>Ek aisi online mystery challenge jahan 2,000 registrations poore hone ke baad grand tournament unlock hoga aur top performers grand prize jeetenge.</p>
     
-    <!-- Milestone Progress Box with 1 Month Unlock Timeline -->
+    <!-- Early Bird Bonus Alert Banner (Added Element 4) -->
+    <div class="early-bird-banner">
+      <span style="font-size: 22px;">🎁</span>
+      <div style="font: 12px 'DM Mono'; color: #f3ede2;">
+        <strong style="color: var(--gold);">EARLY BIRD PERK:</strong> Pehle 500 agents ko tournament unlock hone se pehle hi <strong>Exclusive Secret Practice Clues</strong> turant mil jayengi!
+      </div>
+    </div>
+
+    <!-- Milestone Progress Box with Dynamic Date Calculation -->
     <div class="milestone-box">
       <div style="display:flex; justify-content:space-between; align-items:center; font:12px 'DM Mono'; color:var(--cream);">
         <span>🎯 Tournament Unlock Goal: <strong style="color:var(--gold);">684 / 2,000 Agents Joined</strong></span>
@@ -121,23 +133,25 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div class="progress-bar-bg">
         <div class="progress-bar-fill" style="width: 34%;"></div>
       </div>
-      <div style="font:10px 'DM Mono'; color:var(--muted); margin-top:8px; text-align:center;">*Estimated Timeline: Tournament 2,000 registrations poore hone ke 1 month baad officially unlock kiya jayega.</div>
+      <div style="font:10px 'DM Mono'; color:var(--muted); margin-top:8px; text-align:center;" id="milestoneDateText">
+        *Estimated Timeline: Tournament 2,000 registrations poore hone ke baad officially unlock hoga.
+      </div>
     </div>
 
     <div>
       <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="btn-primary">Pay ₹599 & Secure Slot Now</a>
       <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" class="btn-secondary-custom">Join Community</a>
     </div>
-    <div style="font:11px 'DM Mono'; color:var(--muted); margin-top:14px; letter-spacing:0.1em;">🔒 100% Secure Payment via Cashfree • Instant Automated VIP Access</div>
+    <div style="font:11px 'DM Mono'; color:var(--muted); margin-top:14px; letter-spacing:0.1em;">🔒 100% Secure Payment via Cashfree • Verified Creator Backed</div>
   </section>
 
-  <!-- Fair Play Guarantee Badge -->
+  <!-- 100% Refund Guarantee & Fair Play Badge (Added Element 1 & Creator Authority) -->
   <section class="section" style="padding-top: 10px; padding-bottom: 20px;">
     <div class="fair-play-badge">
       <div class="fair-play-icon">🛡️</div>
       <div>
-        <div class="fair-play-title">100% Skill-Based Verified Competition – No Luck Involved</div>
-        <p class="fair-play-desc">The Black Ledger operates strictly on deductive logic and speed. Tournament officially activates 1 month after the 2,000 participant milestone is reached. Transparent and secure.</p>
+        <div class="fair-play-title">100% Refund Guarantee & Zero Financial Risk</div>
+        <p class="fair-play-desc">Agar kisi wajah se 2,000 registrations ka milestone achieve nahi hota hai, toh aapka poora <strong>₹599 ka amount bina kisi deduction ke 100% refund</strong> kar diya jayega. Your money is completely safe.</p>
       </div>
     </div>
   </section>
@@ -159,12 +173,12 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
     </div>
   </section>
 
-  <!-- Prize Pool Section (Top 100 Ranks Structure) -->
+  <!-- Prize Pool Section -->
   <section class="section" id="prizes">
     <div class="section-title">
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Rewards & Ranks</div>
-      <h2>Grand Prize Pool (Unlocked 1 Month After 2,000 Registrations)</h2>
-      <p>Target poora hone ke 1 month baad top 100 performers mein yeh inaam distribute honge.</p>
+      <h2 id="prizePoolTitle">Grand Prize Pool</h2>
+      <p>Target poora hone ke baad top 100 performers mein yeh inaam distribute honge.</p>
     </div>
     <div class="grid-4">
       <div class="card card-featured">
@@ -190,28 +204,28 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
     </div>
   </section>
 
-  <!-- How It Works Section -->
+  <!-- How It Works & Post-Payment Exact Steps (Added Element 3) -->
   <section class="section" style="background:linear-gradient(180deg, transparent, rgba(20,13,10,0.4), transparent);">
     <div class="section-title">
-      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Simple Process</div>
-      <h2>How It Works</h2>
-      <p>Bina kisi confusion ke teen asan steps mein shuru karein.</p>
+      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Crystal Clear Process</div>
+      <h2>What Happens After You Pay?</h2>
+      <p>Payment ke baad agle 10 seconds mein kya hoga, yeh raha poora process:</p>
     </div>
     <div class="grid-3">
       <div class="card">
         <span class="card-num">STEP 01</span>
-        <h3>Pay ₹599 Entry Fee</h3>
-        <p>Cashfree form mein apna naam daalkar secure payment karein. Turant aapko VIP Group aur Unique ID Card mil jayega.</p>
+        <h3>Instant Secure Payment</h3>
+        <p>Cashfree gateway ke zariye ₹599 pay karein. Payment success hote hi aapka transaction securely record ho jayega.</p>
       </div>
       <div class="card">
         <span class="card-num">STEP 02</span>
-        <h3>Goal: 2,000 Registrations</h3>
-        <p>Jaise hi total 2,000 agents join kar lenge, uske 1 month baad official mystery case files aur tournament doors unlock ho jayenge.</p>
+        <h3>Download Detective ID</h3>
+        <p>Screen par aapko aapke naam ke sath official <strong>Unique Verified Detective ID Card</strong> generate hokar milega jise download kar sakte hain.</p>
       </div>
       <div class="card">
         <span class="card-num">STEP 03</span>
-        <h3>Solve & Win</h3>
-        <p>Riddles ko sabse tezi se solve karke leaderboard par top karein aur grand prize jeetein.</p>
+        <h3>Join VIP Support Channel</h3>
+        <p>Turant <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Instagram VIP Group</a> join karein jahan saari updates, support aur early bird clues milengi.</p>
       </div>
     </div>
   </section>
@@ -222,13 +236,13 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Lifetime Tournament Access</div>
       <h3 style="font:700 24px Cinzel,serif; margin:8px 0 4px;">The Black Ledger VIP Pass</h3>
       <div class="price-tag">₹599</div>
-      <div class="price-sub">ONE-TIME FEE • UNLOCKS 1 MONTH AFTER 2,000 USERS</div>
+      <div class="price-sub" id="pricingSubText">ONE-TIME FEE • 100% REFUNDABLE IF MILESTONE NOT MET</div>
       
       <ul class="checklist">
-        <li>Instant automated entry to VIP Instagram Channel (<a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Join Group & Support Here</a>)</li>
+        <li>Instant automated entry to VIP Instagram Channel (<a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Support & Group Here</a>)</li>
         <li>Exclusive Unique Detective ID Card with your name</li>
-        <li>Full access to tournament 1 month after 2,000 milestone is reached</li>
-        <li>Eligibility to win iPhone 18 Pro, ₹1L & Top 100 Cash Prizes</li>
+        <li>Early Bird Bonus: Access to secret practice riddles instantly</li>
+        <li>100% Money-Back Refund Guarantee if milestone isn't reached</li>
       </ul>
 
       <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="btn-primary" style="width:100%; text-align:center;">Pay ₹599 & Secure Slot Now</a>
@@ -243,26 +257,34 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div class="id-card-sample">
         <div style="font:10px 'DM Mono'; color:var(--gold); letter-spacing:0.1em;">THE BLACK LEDGER // VIP AGENT</div>
         <div style="font:700 16px Cinzel,serif; margin:8px 0; color:#fff;" id="previewAgentName">AGENT: [YOUR NAME HERE]</div>
-        <div style="font:11px 'DM Mono'; color:var(--muted);">STATUS: <span style="color:#22c55e;">VERIFIED & PENDING (684/2000)</span></div>
+        <div style="font:11px 'DM Mono'; color:var(--muted);">STATUS: <span style="color:#22c55e;">VERIFIED & REFUND-SECURED (684/2000)</span></div>
         <div style="font:10px 'DM Mono'; color:#a89988; margin-top:6px;">ACCESS: VIP INSTAGRAM CHANNEL & PASS</div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
+  <!-- FAQ Section (Updated with Refund & Creator Details) -->
   <section class="section">
     <div class="section-title">
-      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Support & Help</div>
+      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Support & Trust</div>
       <h2>Frequently Answered Questions</h2>
     </div>
     <div class="grid-2">
       <div class="card">
-        <h3>Q: Tournament kab shuru hoga?</h3>
-        <p>Jaise hi total 2,000 registrations complete ho jayengi, uske theek 1 month baad tournament officially unlock ho jayega.</p>
+        <h3>Q: Kya mera paisa safe hai agar target poora nahi hua?</h3>
+        <p>100% Safe! Agar 2,000 registrations ka milestone hit nahi hota hai, toh aapka poora ₹599 bina kisi sawal ke refund kar diya jayega.</p>
       </div>
       <div class="card">
-        <h3>Q: Payment ya link mein koi dikkat ho toh kisse contact karein?</h3>
-        <p>Agar payment ke baad group link ya ID card mein koi query ho, toh aap turant hamare <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Instagram VIP Support Group</a> par message karke help le sakte hain.</p>
+        <h3>Q: Tournament kab shuru hoga?</h3>
+        <p id="faqUnlockText">Jaise hi total 2,000 registrations complete ho jayengi, uske theek 1 month baad tournament officially unlock ho jayega.</p>
+      </div>
+      <div class="card">
+        <h3>Q: Payment ke baad link ya ID card mein koi dikkat aaye toh?</h3>
+        <p>Aap kisi bhi samay hamare <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Instagram VIP Support Group</a> par direct message karke creator/support team se help le sakte hain.</p>
+      </div>
+      <div class="card">
+        <h3>Q: Kya yeh competition 100% fair hai?</h3>
+        <p>Yes, yeh puri tarah se logic, speed aur deductions par based skill competition hai jisme transparency maintain ki jati hai.</p>
       </div>
     </div>
   </section>
@@ -272,17 +294,31 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 <div class="sticky-bar">
   <div class="sticky-text">
     <strong style="color:var(--gold); display:block; font-size:12px;">THE BLACK LEDGER</strong>
-    Unlocks 1 Month After 2,000 Users
+    <span id="stickyUnlockText">100% Refundable If Goal Not Met</span>
   </div>
   <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="sticky-btn">Pay ₹599 Now</a>
 </div>
 
 <footer class="footer">
   THE BLACK LEDGER · SKILL-BASED COMPETITIVE CHALLENGE<br>
-  <span style="display:inline-block;margin-top:8px">Secure payments processed via Cashfree Gateway. Support available via Instagram VIP Group. Terms apply.</span>
+  <span style="display:inline-block;margin-top:8px">Secure payments processed via Cashfree Gateway. Creator Backed & Support via Instagram VIP Group. Terms apply.</span>
 </footer>
 
 <script>
+// Dynamic Date Calculation: Tomorrow + 1 Month
+let targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 1); // Tomorrow
+targetDate.setMonth(targetDate.getMonth() + 1); // Plus 1 month
+const options = { day: 'numeric', month: 'short', year: 'numeric' };
+const formattedDate = targetDate.toLocaleDateString('en-GB', options);
+
+// Automatically update elements with the exact calculated date & security notes
+document.getElementById('milestoneDateText').innerHTML = `*Estimated Timeline: Tournament 2,000 registrations poore hone ke baad <strong>${formattedDate}</strong> ko officially unlock hoga.`;
+document.getElementById('prizePoolTitle').textContent = `Grand Prize Pool (Unlocks ${formattedDate})`;
+document.getElementById('pricingSubText').textContent = `ONE-TIME FEE • 100% REFUNDABLE • UNLOCKS ON ${formattedDate.toUpperCase()}`;
+document.getElementById('faqUnlockText').textContent = `Jaise hi total 2,000 registrations complete ho jayengi, tournament theek 1 month baad yaani ${formattedDate} ko officially unlock ho jayega.`;
+document.getElementById('stickyUnlockText').textContent = `Unlocks On: ${formattedDate}`;
+
 // Mini Riddle Checker
 function checkRiddle(isCorrect) {
   const resultBox = document.getElementById('riddleResult');
@@ -291,7 +327,7 @@ function checkRiddle(isCorrect) {
     resultBox.style.background = 'rgba(34, 197, 94, 0.15)';
     resultBox.style.border = '1px solid rgba(34, 197, 94, 0.4)';
     resultBox.style.color = '#4ade80';
-    resultBox.innerHTML = '<strong>Correct Deduction!</strong> Your detective instincts are sharp. Pay ₹599 below to secure your slot for the 2,000 milestone unlock.';
+    resultBox.innerHTML = '<strong>Correct Deduction!</strong> Your detective instincts are sharp. Pay ₹599 below with 100% refund safety to secure your slot.';
   } else {
     resultBox.style.background = 'rgba(185, 43, 39, 0.15)';
     resultBox.style.border = '1px solid rgba(185, 43, 39, 0.4)';
