@@ -34,15 +34,13 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 .btn-primary{background:linear-gradient(135deg,#f3c68a,#c99353);color:#120d0a;font:700 13px 'DM Mono';letter-spacing:0.1em;text-transform:uppercase;padding:18px 36px;border-radius:4px;text-decoration:none;display:inline-block;transition:0.3s;box-shadow:0 10px 30px rgba(201,147,83,0.3);border:1px solid #ffeba3}
 .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 15px 35px rgba(201,147,83,0.4)}
 
-/* Live Ticker Box */
-.live-ticker { max-width: 700px; margin: 0 auto 25px; background: rgba(17, 14, 12, 0.85); border: 1px solid rgba(223,177,117,0.3); border-radius: 8px; padding: 12px 20px; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
-.ticker-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; flex-shrink: 0; }
-.ticker-content { font: 12px 'DM Mono'; color: #d1c7bc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; text-align: left; }
-.ticker-content span { color: var(--gold); font-weight: bold; }
+.btn-secondary-custom{background:transparent;border:1px solid rgba(223,177,117,0.4);color:var(--gold);font:700 12px 'DM Mono';letter-spacing:0.1em;text-transform:uppercase;padding:14px 28px;border-radius:4px;text-decoration:none;display:inline-block;transition:0.3s;margin-left:10px;}
+.btn-secondary-custom:hover{background:rgba(223,177,117,0.1);border-color:var(--gold);}
 
-/* Urgency Countdown Timer Banner */
-.urgency-banner { max-width: 700px; margin: 0 auto 30px; background: linear-gradient(135deg, rgba(185,43,39,0.2), rgba(17,14,12,0.9)); border: 1px solid rgba(185,43,39,0.4); border-radius: 8px; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font: 12px 'DM Mono'; color: #f3ede2; }
-.countdown-clock { color: #ff6b65; font-weight: bold; letter-spacing: 0.1em; }
+/* Milestone Progress Box */
+.milestone-box { max-width: 700px; margin: 0 auto 30px; background: linear-gradient(135deg, rgba(223,177,117,0.15), rgba(17,14,12,0.9)); border: 1px solid rgba(223,177,117,0.4); border-radius: 8px; padding: 18px 22px; text-align: left; }
+.progress-bar-bg { background: rgba(255,255,255,0.08); border-radius: 4px; height: 10px; width: 100%; margin-top: 10px; overflow: hidden; position: relative; }
+.progress-bar-fill { background: linear-gradient(90deg, var(--gold), var(--gold-light)); height: 100%; width: 34%; border-radius: 4px; }
 
 /* Fair Play Guarantee Badge Box */
 .fair-play-badge { max-width: 700px; margin: 0 auto 35px; background: linear-gradient(145deg, rgba(223,177,117,0.08), rgba(17,14,12,0.9)); border: 1px solid rgba(223,177,117,0.3); border-radius: 8px; padding: 18px 24px; display: flex; align-items: center; gap: 16px; text-align: left; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
@@ -81,15 +79,10 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 .checklist li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);color:#d1c7bc;font-size:14px;display:flex;align-items:center}
 .checklist li::before{content:'✓';color:var(--gold);font-weight:bold;margin-right:12px;font-size:16px}
 
-/* Live Registrations Scroll Box */
-.registrations-box { background: rgba(12, 9, 7, 0.9); border: 1px solid rgba(223,177,117,0.2); border-radius: 8px; padding: 20px; max-width: 700px; margin: 30px auto 0; text-align: left; }
-.registrations-box h4 { font: 700 13px 'DM Mono'; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 12px; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
-.reg-list { max-height: 180px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 5px; }
-.reg-item { display: flex; justify-content: space-between; align-items: center; font: 12px 'DM Mono'; background: rgba(255,255,255,0.02); padding: 8px 12px; border-radius: 4px; border-left: 2px solid var(--gold); animation: fadeIn 0.5s ease-in-out; }
-.reg-name { color: var(--cream); font-weight: 500; }
-.reg-time { color: var(--muted); font-size: 11px; }
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+/* Live Interactive ID Card Generator Preview */
+.id-generator-box { background: linear-gradient(145deg, #18120e, #0a0706); border: 1px solid rgba(223,177,117,0.35); border-radius: 10px; padding: 30px; max-width: 650px; margin: 30px auto 0; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+.id-card-sample { background: #080605; border: 2px solid var(--gold); border-radius: 8px; padding: 20px; margin-top: 20px; text-align: left; position: relative; overflow: hidden; }
+.id-card-sample::before { content: "VERIFIED"; position: absolute; right: -20px; top: 20px; background: var(--gold); color: #080605; font: 700 9px 'DM Mono'; padding: 4px 30px; transform: rotate(45deg); letter-spacing: 0.1em; }
 
 /* Sticky Mobile Bottom Bar */
 .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10, 7, 6, 0.95); border-top: 1px solid rgba(223,177,117,0.3); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 50; backdrop-filter: blur(10px); box-shadow: 0 -10px 30px rgba(0,0,0,0.8); }
@@ -105,7 +98,9 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 
 <header class="topbar">
   <div class="brand">THE BLACK LEDGER</div>
-  <div class="badge-live"><i></i> TOURNAMENT OPEN</div>
+  <div>
+    <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="font:11px 'DM Mono'; color:var(--gold); text-decoration:none; border:1px solid rgba(223,177,117,0.3); padding:6px 12px; border-radius:20px;">💬 Preview VIP Group</a>
+  </div>
 </header>
 
 <main>
@@ -113,26 +108,25 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
   <section class="hero">
     <div style="font:12px 'DM Mono'; color:var(--gold); letter-spacing:0.25em; text-transform:uppercase; margin-bottom:10px;">⚡ India's Most Thrilling Skill Competition</div>
     <h1 class="gold-glow">Dimaag Lagao, Secret Solve Karo & <span style="color:var(--gold-light)">iPhone 18 Pro + ₹1 Lakh</span> Jeeto!</h1>
-    <p>Ek aisi online mystery challenge jahan aapko hidden files aur tough riddles ko solve karna hai. Top 100 performers ke liye cash aur rewards daav par hain.</p>
+    <p>Ek aisi online mystery challenge jahan 2,000 registrations poore hote hi grand tournament unlock hoga aur top performers grand prize jeetenge.</p>
     
-    <!-- Urgency Countdown Timer Banner -->
-    <div class="urgency-banner">
-      <span>⏳ Next Case Batch Closing In:</span>
-      <span class="countdown-clock" id="countdownTimer">04h : 32m : 15s</span>
-    </div>
-
-    <!-- Live Ticker showing recent buyers (Name only) -->
-    <div class="live-ticker">
-      <div class="ticker-dot"></div>
-      <div class="ticker-content" id="liveTickerText">
-        <span>Aman Verma</span> just secured VIP Pass (₹599) a few seconds ago!
+    <!-- Milestone Progress Box (2000 Registrations Rule) -->
+    <div class="milestone-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; font:12px 'DM Mono'; color:var(--cream);">
+        <span>🎯 Tournament Unlock Goal: <strong style="color:var(--gold);">684 / 2,000 Agents Joined</strong></span>
+        <span style="color:#ff6b65;">Pending: 1,316 Slots</span>
       </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 34%;"></div>
+      </div>
+      <div style="font:10px 'DM Mono'; color:var(--muted); margin-top:6px; text-align:center;">*Tournament aur Winner announcement tabhi khulegi jab total 2,000 registrations complete ho jayengi.</div>
     </div>
 
     <div>
-      <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="btn-primary">Pay ₹599 & Join Tournament Now</a>
+      <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="btn-primary">Pay ₹599 & Secure Slot Now</a>
+      <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" class="btn-secondary-custom">Join Community</a>
     </div>
-    <div style="font:11px 'DM Mono'; color:var(--muted); margin-top:14px; letter-spacing:0.1em;">🔒 Instant Automated Access to VIP Instagram Group After Payment</div>
+    <div style="font:11px 'DM Mono'; color:var(--muted); margin-top:14px; letter-spacing:0.1em;">🔒 100% Secure Payment via Cashfree • Instant Automated VIP Access</div>
   </section>
 
   <!-- Fair Play Guarantee Badge -->
@@ -141,7 +135,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div class="fair-play-icon">🛡️</div>
       <div>
         <div class="fair-play-title">100% Skill-Based Verified Competition – No Luck Involved</div>
-        <p class="fair-play-desc">The Black Ledger operates strictly on deductive logic, evidence analysis, and speed. Winners are decided purely on accurate riddle solving and leaderboard ranks. Transparent, fair, and legitimate.</p>
+        <p class="fair-play-desc">The Black Ledger operates strictly on deductive logic and speed. Tournament officially activates the moment the 2,000 participant milestone is reached. Transparent and secure.</p>
       </div>
     </div>
   </section>
@@ -167,8 +161,8 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
   <section class="section" id="prizes">
     <div class="section-title">
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Rewards & Ranks</div>
-      <h2>Grand Prize Pool (Top 100 Ranks)</h2>
-      <p>Top performers ke liye shandar inaam batne wale hain.</p>
+      <h2>Grand Prize Pool (Unlocked at 2,000 Registrations)</h2>
+      <p>Target poora hote hi top 100 performers mein yeh inaam distribute honge.</p>
     </div>
     <div class="grid-4">
       <div class="card card-featured">
@@ -205,46 +199,50 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div class="card">
         <span class="card-num">STEP 01</span>
         <h3>Pay ₹599 Entry Fee</h3>
-        <p>Cashfree form mein apna naam aur details daalkar secure payment karein. Payment ke turant baad aapko VIP Instagram Group ka access mil jayega.</p>
+        <p>Cashfree form mein apna naam daalkar secure payment karein. Turant aapko VIP Group aur Unique ID Card mil jayega.</p>
       </div>
       <div class="card">
         <span class="card-num">STEP 02</span>
-        <h3>Solve The Case Files</h3>
-        <p>VIP group aur portal par aane wali mystery riddles aur clues ko apne dimaag ka use karke decode karein.</p>
+        <h3>Goal: 2,000 Registrations</h3>
+        <p>Jaise hi total 2,000 agents join kar lenge, official mystery case files aur tournament doors unlock ho jayenge.</p>
       </div>
       <div class="card">
         <span class="card-num">STEP 03</span>
-        <h3>Top The Leaderboard</h3>
-        <p>Jo sabse tezi se sahi jawab submit karega, wo leaderboard par top karke grand prize jeet jayega.</p>
+        <h3>Solve & Win</h3>
+        <p>Riddles ko sabse tezi se solve karke leaderboard par top karein aur grand prize jeetein.</p>
       </div>
     </div>
   </section>
 
-  <!-- Pricing / Join Box & Live Registrations List -->
+  <!-- Pricing / Join Box & Live ID Card Generator Preview -->
   <section class="section" id="join">
     <div class="pricing-box">
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Lifetime Tournament Access</div>
       <h3 style="font:700 24px Cinzel,serif; margin:8px 0 4px;">The Black Ledger VIP Pass</h3>
       <div class="price-tag">₹599</div>
-      <div class="price-sub">ONE-TIME FEE • NO HIDDEN CHARGES</div>
+      <div class="price-sub">ONE-TIME FEE • UNLOCKS AT 2,000 USERS</div>
       
       <ul class="checklist">
-        <li>Instant automated entry to VIP Instagram Channel (<a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Join Here</a>)</li>
-        <li>Full access to all secret mystery challenge rooms</li>
+        <li>Instant automated entry to VIP Instagram Channel (<a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Preview Here</a>)</li>
+        <li>Exclusive Unique Detective ID Card with your name</li>
+        <li>Full access to tournament once 2,000 milestone is reached</li>
         <li>Eligibility to win iPhone 18 Pro, ₹1L & Top 100 Cash Prizes</li>
-        <li>Real-time leaderboard & rank tracking</li>
       </ul>
 
-      <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="btn-primary" style="width:100%; text-align:center;">Pay ₹599 & Enter Tournament</a>
-      
-      <div style="font:10px 'DM Mono'; color:var(--muted); margin-top:12px;">*Note: Cashfree form mein apna poora naam zaroor daalein taaki leaderboard aur list mein aapka naam update ho sake.</div>
+      <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="btn-primary" style="width:100%; text-align:center;">Pay ₹599 & Secure Slot Now</a>
     </div>
 
-    <!-- Recent Registrations List (Names only) -->
-    <div class="registrations-box">
-      <h4><span>🔴 Live Verified Registrations</span> <span style="font-size:10px; color:var(--gold);" id="liveCountText">142 Joined Today</span></h4>
-      <div class="reg-list" id="regListContainer">
-        <!-- Dynamic list will load here -->
+    <!-- Interactive ID Card Preview Widget -->
+    <div class="id-generator-box">
+      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.15em; margin-bottom:8px;">ID CARD PREVIEW</div>
+      <h3 style="font:700 18px Cinzel,serif; margin-bottom:12px;">See Your Official Detective Pass</h3>
+      <p style="color:var(--muted); font-size:12px; margin-bottom:15px;">Payment ke baad aapka ID card kuch aisa generate hoga:</p>
+      
+      <div class="id-card-sample">
+        <div style="font:10px 'DM Mono'; color:var(--gold); letter-spacing:0.1em;">THE BLACK LEDGER // VIP AGENT</div>
+        <div style="font:700 16px Cinzel,serif; margin:8px 0; color:#fff;" id="previewAgentName">AGENT: [YOUR NAME HERE]</div>
+        <div style="font:11px 'DM Mono'; color:var(--muted);">STATUS: <span style="color:#22c55e;">VERIFIED & PENDING UNLOCK (684/2000)</span></div>
+        <div style="font:10px 'DM Mono'; color:#a89988; margin-top:6px;">ACCESS: VIP INSTAGRAM CHANNEL & TOURNAMENT PASS</div>
       </div>
     </div>
   </section>
@@ -257,12 +255,12 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
     </div>
     <div class="grid-2">
       <div class="card">
-        <h3>Q: Kya yeh kismat (luck) par based hai?</h3>
-        <p>Bilkul nahi! Yeh 100% skill, logic aur deductive reasoning par based competition hai. Jo tezi se solve karega, wahi jitega.</p>
+        <h3>Q: Tournament kab shuru hoga?</h3>
+        <p>Jaise hi total 2,000 registrations complete ho jayengi, tournament officially unlock ho jayega aur saare case files live kar diye jayenge.</p>
       </div>
       <div class="card">
         <h3>Q: Payment ke baad group mein kaise judenge?</h3>
-        <p>Cashfree par successfully pay karne ke turant baad aapko hamare <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Instagram VIP Group</a> ka join link mil jayega.</p>
+        <p>Cashfree par successfully pay karne ke turant baad aapko hamare <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Instagram VIP Group</a> ka join link aur ID card mil jayega.</p>
       </div>
     </div>
   </section>
@@ -272,7 +270,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 <div class="sticky-bar">
   <div class="sticky-text">
     <strong style="color:var(--gold); display:block; font-size:12px;">THE BLACK LEDGER</strong>
-    iPhone 18 Pro + ₹1 Lakh Pool
+    Unlocks at 2,000 Registrations
   </div>
   <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="sticky-btn">Pay ₹599 Now</a>
 </div>
@@ -291,7 +289,7 @@ function checkRiddle(isCorrect) {
     resultBox.style.background = 'rgba(34, 197, 94, 0.15)';
     resultBox.style.border = '1px solid rgba(34, 197, 94, 0.4)';
     resultBox.style.color = '#4ade80';
-    resultBox.innerHTML = '<strong>Correct Deduction!</strong> Your detective instincts are sharp. Pay ₹599 below to unlock real case files and compete for the iPhone 18 Pro & Cash prizes.';
+    resultBox.innerHTML = '<strong>Correct Deduction!</strong> Your detective instincts are sharp. Pay ₹599 below to secure your slot for the 2,000 milestone unlock.';
   } else {
     resultBox.style.background = 'rgba(185, 43, 39, 0.15)';
     resultBox.style.border = '1px solid rgba(185, 43, 39, 0.4)';
@@ -300,80 +298,16 @@ function checkRiddle(isCorrect) {
   }
 }
 
-// Countdown Timer Logic
-let totalSeconds = 4 * 3600 + 32 * 60 + 15;
-function updateCountdown() {
-  const timerEl = document.getElementById('countdownTimer');
-  if(timerEl && totalSeconds > 0) {
-    totalSeconds--;
-    let h = Math.floor(totalSeconds / 3600);
-    let m = Math.floor((totalSeconds % 3600) / 60);
-    let s = totalSeconds % 60;
-    timerEl.textContent = `${String(h).padStart(2,'0')}h : ${String(m).padStart(2,'0')}m : ${String(s).padStart(2,'0')}s`;
+// Dynamic sample name changer for preview ID card
+const sampleNames = ["AGENT: RAHUL SHARMA", "AGENT: AMAN VERMA", "AGENT: PRIYA GUPTA", "AGENT: KVR MALHOTRA", "AGENT: VIKRAM ROY"];
+let nameIdx = 0;
+setInterval(() => {
+  nameIdx = (nameIdx + 1) % sampleNames.length;
+  const agentEl = document.getElementById('previewAgentName');
+  if(agentEl) {
+    agentEl.textContent = sampleNames[nameIdx];
   }
-}
-setInterval(updateCountdown, 1000);
-
-// 100+ Real Indian Names List (No city)
-const masterNamesList = [
-  "Aman Verma", "Priya Sharma", "Karan Malhotra", "Sahil Khan", "Deepak Sharma", "Neha Gupta", 
-  "Vikramaditya Roy", "Ankit Tyagi", "R Rohan", "Tanvi Mehra", "Manish Kumar", "Aditya Vardhan", 
-  "Rohit Singhal", "Simran Kaur", "Abhishek Joshi", "Pooja Hegde", "Rahul Dravid", "Alok Rastogi", 
-  "Meenakshi Iyer", "Tarun Sharma", "Kunal Khemu", "Divya Agarwal", "Siddharth Malhotra", "Ritu Nanda", 
-  "Harsh Vardhan", "Nikhil Bhardwaj", "Shreya Ghoshal", "Varun Dhawan", "Megha Sen", "Mayank Agarwal", 
-  "Zoya Akhtar", "Kabir Khan", "Sneha Reddy", "Akash Chopra", "Swati Maliwal", "Mohit Chauhan", 
-  "Kritika Sanon", "Rajesh Khanna", "Poonam Pandey", "Gaurav Taneja", "Payal Malik", "Armaan Malik", 
-  "Deepika Padukone", "Ranveer Singh", "Shahid Kapoor", "Kiara Advani", "Siddharth Roy", "Arjun Rampal", 
-  "Bhuvan Bam", "Carry Minati", "Elvish Yadav", "Rajat Dalal", "Lakshay Chaudhary", "Rajat Sharma", 
-  "Ankit Baiyanpuriya", "Sandeep Maheshwari", "Vivek Bindra", "Dr. Ujjwal Patni", "Aman Dhattarwal", "Shraddha Kapoor", 
-  "Tiger Shroff", "Disha Patani", "Nawazuddin Siddiqui", "Pankaj Tripathi", "Manoj Bajpayee", "Naseeruddin Shah", 
-  "Irrfan Khan", "Ayushmann Khurrana", "Rajkummar Rao", "Vicky Kaushal", "Kartik Aaryan", "Yami Gautam", 
-  "Taapsee Pannu", "Richa Chadha", "Ali Fazal", "Pratik Gandhi", "Jitendra Kumar", "Neena Gupta", 
-  "Raghubir Yadav", "Jaideep Ahlawat", "Abhishek Banerjee", "Divyendu Sharma", "Pankaj Jha", "Swanand Kirkire", 
-  "Piyush Mishra", "Anurag Kashyap", "Vishal Bhardwaj", "S.S. Rajamouli", "Prabhas Raju", "Allu Arjun", 
-  "Ram Charan", "Jr. NTR", "Yash Kumar", "Dulquer Salmaan", "Fahadh Faasil", "Vijay Sethupathi"
-];
-
-let activeBuyers = [
-  { name: "Aman Verma", time: "Just now" },
-  { name: "Priya Sharma", time: "1 min ago" },
-  { name: "Karan Malhotra", time: "3 mins ago" },
-  { name: "Sahil Khan", time: "5 mins ago" },
-  { name: "Deepak Sharma", time: "7 mins ago" }
-];
-
-function updateLiveFeed() {
-  const randomName = masterNamesList[Math.floor(Math.random() * masterNamesList.length)];
-  activeBuyers.unshift({
-    name: randomName,
-    time: "Just now"
-  });
-
-  if(activeBuyers.length > 15) activeBuyers.pop();
-
-  const tickerEl = document.getElementById('liveTickerText');
-  if(tickerEl) {
-    tickerEl.innerHTML = `<span>${randomName}</span> just secured VIP Pass (₹599)!`;
-  }
-
-  const container = document.getElementById('regListContainer');
-  if(container) {
-    container.innerHTML = '';
-    activeBuyers.forEach((buyer, index) => {
-      const item = document.createElement('div');
-      item.className = 'reg-item';
-      let timeText = index === 0 ? "Just now" : `${index * 2} mins ago`;
-      item.innerHTML = `
-        <span class="reg-name">🛡️ ${buyer.name} joined VIP Pass</span>
-        <span class="reg-time">${timeText}</span>
-      `;
-      container.appendChild(item);
-    });
-  }
-}
-
-setInterval(updateLiveFeed, 5000);
-updateLiveFeed();
+}, 3000);
 </script>
 </body>
 </html>
