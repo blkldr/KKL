@@ -25,7 +25,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 @keyframes pulse { 0% { opacity:1; } 50% { opacity:0.3; } 100% { opacity:1; } }
 
 .topbar{max-width:1200px;margin:auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06)}
-.brand{font:700 14px Cinzel,serif;letter-spacing:0.2em;color:var(--gold)}
+.brand{font:700 14px Cinzel,serif;letter-spacing:0.2em;color:var(--gold);display:flex;align-items:center;gap:8px;}
 
 .hero{max-width:1100px;margin:auto;padding:45px 24px 50px;text-align:center}
 .hero h1{font:700 clamp(34px, 5.5vw, 64px)/1.1 Cinzel,serif;letter-spacing:0.02em;margin:14px 0 20px}
@@ -97,9 +97,11 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 <body>
 
 <header class="topbar">
-  <div class="brand">THE BLACK LEDGER</div>
+  <div class="brand">
+    <span>🛡️</span> THE BLACK LEDGER
+  </div>
   <div>
-    <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="font:11px 'DM Mono'; color:var(--gold); text-decoration:none; border:1px solid rgba(223,177,117,0.3); padding:6px 12px; border-radius:20px;">💬 Preview VIP Group</a>
+    <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="font:11px 'DM Mono'; color:var(--gold); text-decoration:none; border:1px solid rgba(223,177,117,0.3); padding:6px 12px; border-radius:20px;">💬 Join VIP Group & Support</a>
   </div>
 </header>
 
@@ -108,9 +110,9 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
   <section class="hero">
     <div style="font:12px 'DM Mono'; color:var(--gold); letter-spacing:0.25em; text-transform:uppercase; margin-bottom:10px;">⚡ India's Most Thrilling Skill Competition</div>
     <h1 class="gold-glow">Dimaag Lagao, Secret Solve Karo & <span style="color:var(--gold-light)">iPhone 18 Pro + ₹1 Lakh</span> Jeeto!</h1>
-    <p>Ek aisi online mystery challenge jahan 2,000 registrations poore hote hi grand tournament unlock hoga aur top performers grand prize jeetenge.</p>
+    <p>Ek aisi online mystery challenge jahan 2,000 registrations poore hone ke 1 month baad grand tournament unlock hoga aur top performers grand prize jeetenge.</p>
     
-    <!-- Milestone Progress Box (2000 Registrations Rule) -->
+    <!-- Milestone Progress Box with 1 Month Unlock Timeline -->
     <div class="milestone-box">
       <div style="display:flex; justify-content:space-between; align-items:center; font:12px 'DM Mono'; color:var(--cream);">
         <span>🎯 Tournament Unlock Goal: <strong style="color:var(--gold);">684 / 2,000 Agents Joined</strong></span>
@@ -119,7 +121,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div class="progress-bar-bg">
         <div class="progress-bar-fill" style="width: 34%;"></div>
       </div>
-      <div style="font:10px 'DM Mono'; color:var(--muted); margin-top:6px; text-align:center;">*Tournament aur Winner announcement tabhi khulegi jab total 2,000 registrations complete ho jayengi.</div>
+      <div style="font:10px 'DM Mono'; color:var(--muted); margin-top:8px; text-align:center;">*Estimated Timeline: Tournament 2,000 registrations poore hone ke 1 month baad officially unlock kiya jayega.</div>
     </div>
 
     <div>
@@ -135,7 +137,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div class="fair-play-icon">🛡️</div>
       <div>
         <div class="fair-play-title">100% Skill-Based Verified Competition – No Luck Involved</div>
-        <p class="fair-play-desc">The Black Ledger operates strictly on deductive logic and speed. Tournament officially activates the moment the 2,000 participant milestone is reached. Transparent and secure.</p>
+        <p class="fair-play-desc">The Black Ledger operates strictly on deductive logic and speed. Tournament officially activates 1 month after the 2,000 participant milestone is reached. Transparent and secure.</p>
       </div>
     </div>
   </section>
@@ -161,8 +163,8 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
   <section class="section" id="prizes">
     <div class="section-title">
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Rewards & Ranks</div>
-      <h2>Grand Prize Pool (Unlocked at 2,000 Registrations)</h2>
-      <p>Target poora hote hi top 100 performers mein yeh inaam distribute honge.</p>
+      <h2>Grand Prize Pool (Unlocked 1 Month After 2,000 Registrations)</h2>
+      <p>Target poora hone ke 1 month baad top 100 performers mein yeh inaam distribute honge.</p>
     </div>
     <div class="grid-4">
       <div class="card card-featured">
@@ -204,7 +206,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div class="card">
         <span class="card-num">STEP 02</span>
         <h3>Goal: 2,000 Registrations</h3>
-        <p>Jaise hi total 2,000 agents join kar lenge, official mystery case files aur tournament doors unlock ho jayenge.</p>
+        <p>Jaise hi total 2,000 agents join kar lenge, uske 1 month baad official mystery case files aur tournament doors unlock ho jayenge.</p>
       </div>
       <div class="card">
         <span class="card-num">STEP 03</span>
@@ -220,12 +222,12 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Lifetime Tournament Access</div>
       <h3 style="font:700 24px Cinzel,serif; margin:8px 0 4px;">The Black Ledger VIP Pass</h3>
       <div class="price-tag">₹599</div>
-      <div class="price-sub">ONE-TIME FEE • UNLOCKS AT 2,000 USERS</div>
+      <div class="price-sub">ONE-TIME FEE • UNLOCKS 1 MONTH AFTER 2,000 USERS</div>
       
       <ul class="checklist">
-        <li>Instant automated entry to VIP Instagram Channel (<a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Preview Here</a>)</li>
+        <li>Instant automated entry to VIP Instagram Channel (<a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Join Group & Support Here</a>)</li>
         <li>Exclusive Unique Detective ID Card with your name</li>
-        <li>Full access to tournament once 2,000 milestone is reached</li>
+        <li>Full access to tournament 1 month after 2,000 milestone is reached</li>
         <li>Eligibility to win iPhone 18 Pro, ₹1L & Top 100 Cash Prizes</li>
       </ul>
 
@@ -241,8 +243,8 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       <div class="id-card-sample">
         <div style="font:10px 'DM Mono'; color:var(--gold); letter-spacing:0.1em;">THE BLACK LEDGER // VIP AGENT</div>
         <div style="font:700 16px Cinzel,serif; margin:8px 0; color:#fff;" id="previewAgentName">AGENT: [YOUR NAME HERE]</div>
-        <div style="font:11px 'DM Mono'; color:var(--muted);">STATUS: <span style="color:#22c55e;">VERIFIED & PENDING UNLOCK (684/2000)</span></div>
-        <div style="font:10px 'DM Mono'; color:#a89988; margin-top:6px;">ACCESS: VIP INSTAGRAM CHANNEL & TOURNAMENT PASS</div>
+        <div style="font:11px 'DM Mono'; color:var(--muted);">STATUS: <span style="color:#22c55e;">VERIFIED & PENDING (684/2000)</span></div>
+        <div style="font:10px 'DM Mono'; color:#a89988; margin-top:6px;">ACCESS: VIP INSTAGRAM CHANNEL & PASS</div>
       </div>
     </div>
   </section>
@@ -250,17 +252,17 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
   <!-- FAQ Section -->
   <section class="section">
     <div class="section-title">
-      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Support</div>
+      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Support & Help</div>
       <h2>Frequently Answered Questions</h2>
     </div>
     <div class="grid-2">
       <div class="card">
         <h3>Q: Tournament kab shuru hoga?</h3>
-        <p>Jaise hi total 2,000 registrations complete ho jayengi, tournament officially unlock ho jayega aur saare case files live kar diye jayenge.</p>
+        <p>Jaise hi total 2,000 registrations complete ho jayengi, uske theek 1 month baad tournament officially unlock ho jayega.</p>
       </div>
       <div class="card">
-        <h3>Q: Payment ke baad group mein kaise judenge?</h3>
-        <p>Cashfree par successfully pay karne ke turant baad aapko hamare <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Instagram VIP Group</a> ka join link aur ID card mil jayega.</p>
+        <h3>Q: Payment ya link mein koi dikkat ho toh kisse contact karein?</h3>
+        <p>Agar payment ke baad group link ya ID card mein koi query ho, toh aap turant hamare <a href="https://ig.me/j/8bbvnpILXkP1c1rk/" target="_blank" style="color:var(--gold); text-decoration:underline;">Instagram VIP Support Group</a> par message karke help le sakte hain.</p>
       </div>
     </div>
   </section>
@@ -270,14 +272,14 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 <div class="sticky-bar">
   <div class="sticky-text">
     <strong style="color:var(--gold); display:block; font-size:12px;">THE BLACK LEDGER</strong>
-    Unlocks at 2,000 Registrations
+    Unlocks 1 Month After 2,000 Users
   </div>
   <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="sticky-btn">Pay ₹599 Now</a>
 </div>
 
 <footer class="footer">
   THE BLACK LEDGER · SKILL-BASED COMPETITIVE CHALLENGE<br>
-  <span style="display:inline-block;margin-top:8px">Secure payments processed via Cashfree Gateway. Terms & Conditions apply.</span>
+  <span style="display:inline-block;margin-top:8px">Secure payments processed via Cashfree Gateway. Support available via Instagram VIP Group. Terms apply.</span>
 </footer>
 
 <script>
