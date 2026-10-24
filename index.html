@@ -59,7 +59,6 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
 .text-link{background:none;border:0;color:#d9b17d;font:10px 'DM Mono';letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:12px 0 0}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.lock{font:10px 'DM Mono';color:#9b4e45;letter-spacing:.1em}
 .pricing{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;border:1px solid #4c392b;background:linear-gradient(120deg,#19120f,#0c0a09);padding:30px}
 .price{font:500 48px Cinzel,serif;color:#e4c08d}
 .price small{font:11px 'DM Mono';color:#aa9a88;display:block;letter-spacing:.12em;margin-top:6px}
@@ -85,27 +84,28 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
 
 <header class="topbar">
   <div class="brand-mini mono">TBL // THE HIDDEN HUMAN ARCHIVE</div>
-  <div class="status"><i></i> ARCHIVE SYSTEM // ACTIVE • VAULT REC: <span id="counterDisplay" class="text-amber-500 font-bold">#000</span></div>
+  <div class="status"><i></i> ARCHIVE SYSTEM // ACTIVE • PRIZE POOL: iPHONE 18 PRO + ₹5L</div>
 </header>
 
 <main>
+  <!-- Hero Section -->
   <section class="hero" id="top">
     <div class="hero-copy">
-      <div class="eyebrow">A private world of mysteries</div>
+      <div class="eyebrow">Grand Mystery Tournament • Skill Based</div>
       <h1 class="serif">THE BLACK <span>LEDGER</span></h1>
-      <div class="subtitle">THE HIDDEN HUMAN ARCHIVE</div>
-      <p>Some stories are buried. Some statements don't match. And every choice leaves a trace. Enter a fictional world of hidden files, psychological scenarios, and investigations where the final answer is yours to uncover.</p>
+      <div class="subtitle">WIN iPHONE 18 PRO & CASH PRIZES</div>
+      <p>Enter the hidden archive, solve the ultimate mystery challenge, and compete on the leaderboard. ₹599 lifetime entry gives you complete access to clues, archives, and the grand tournament.</p>
       <div class="actions">
-        <a class="btn" href="#preview">Open File 001</a>
-        <a class="btn secondary" href="#membership">Unlock the Archive · ₹599</a>
+        <a class="btn" href="#preview">Open File 001 (Free)</a>
+        <a class="btn secondary" href="https://payments.cashfree.com/links/your-cashfree-link-here" target="_blank">Enter Tournament · ₹599</a>
       </div>
-      <div class="micro">FICTIONAL MYSTERIES · INTERACTIVE CHOICES · LIFETIME MEMBERSHIP OFFER</div>
+      <div class="micro">SKILL-BASED CHALLENGE · INSTANT CASHFREE SECURE CHECKOUT</div>
     </div>
     <div class="vault-wrap" aria-label="Animated vault illustration">
       <div class="vault-glow"></div>
-      <span class="side-note left">MYSTERIES • MOTIVES • CONSEQUENCES</span>
+      <span class="side-note left">MYSTERIES • SKILL • REWARDS</span>
       <div class="vault">
-        <span class="vlabel">ARCHIVE ACCESS // RESTRICTED</span>
+        <span class="vlabel">TOURNAMENT ACTIVE</span>
         <div class="wheel"></div>
         <span class="bolt" style="left:22%;top:50%"></span>
         <span class="bolt" style="left:50%;top:22%"></span>
@@ -116,18 +116,19 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
         <span class="bolt" style="left:30%;top:70%"></span>
         <span class="bolt" style="left:70%;top:70%"></span>
       </div>
-      <span class="side-note right">SOME FILES SHOULD NEVER BE RUSHED</span>
-      <div class="vault-caption">AUTHORIZED BY CURIOSITY</div>
+      <span class="side-note right">GRAND PRIZE: iPHONE 18 PRO</span>
+      <div class="vault-caption">COMPETE & WIN</div>
     </div>
   </section>
 
+  <!-- Free Preview / File 001 -->
   <section class="section" id="preview">
     <div class="section-head">
       <div>
         <div class="eyebrow">Free access // file 001</div>
         <h2>The Unsent Letter</h2>
       </div>
-      <div class="section-intro">A small taste of the archive. Read the evidence, choose what you believe, and reveal one possible interpretation. This is an original fictional scenario.</div>
+      <div class="section-intro">A small taste of the archive. Read the evidence, test your deduction skills, and see how the challenge works.</div>
     </div>
     <div class="grid2">
       <article class="file-card">
@@ -140,7 +141,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
       <article class="file-card">
         <div class="file-no">YOUR FIRST DECISION</div>
         <h3>What stands out?</h3>
-        <p>Choose the detail you would investigate first. There is no perfect personality label here—only a clue about how you approach uncertainty.</p>
+        <p>Choose the detail you would investigate first to test your deductive reasoning.</p>
         <div class="choices" id="firstChoices">
           <button class="choice" onclick="pickFirst(this,'time')">The impossible timing</button>
           <button class="choice" onclick="pickFirst(this,'message')">The missing minute</button>
@@ -151,106 +152,45 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
     </div>
   </section>
 
+  <!-- Rooms Inside the Archive -->
   <section class="section" id="rooms">
     <div class="section-head">
       <div>
-        <div class="eyebrow">Inside the archive</div>
-        <h2>Four rooms. One hidden pattern.</h2>
+        <div class="eyebrow">Inside the tournament</div>
+        <h2>Rooms & Challenge Modules</h2>
       </div>
-      <div class="section-intro">The full membership experience is built around original stories, interactive evidence, and choices that change what you uncover.</div>
+      <div class="section-intro">Unlock all rooms with your ₹599 lifetime entry pass and start solving cases.</div>
     </div>
     <div class="grid3">
-      <article class="file-card"><div class="file-no">ROOM 01 / FILE STORAGE</div><h3>The Archive</h3><p>Explore original mystery files, timelines, letters, and conflicting accounts. Collect clues as you investigate.</p><span class="lock">MEMBERS AREA</span></article>
-      <article class="file-card"><div class="file-no">ROOM 02 / SELF-REFLECTION</div><h3>Ghost Mirror</h3><p>Scenario-based questions explore your decision style. For reflection and entertainment.</p><span class="lock">MEMBERS AREA</span></article>
-      <article class="file-card"><div class="file-no">ROOM 03 / EVIDENCE BOARD</div><h3>Investigation Chamber</h3><p>Compare witness statements, find contradictions, and decide which evidence deserves another look.</p><span class="lock">MEMBERS AREA</span></article>
-      <article class="file-card"><div class="file-no">ROOM 04 / BRANCHING STORY</div><h3>Choice Engine</h3><p>Your decisions open different story branches and lead to multiple fictional endings.</p><span class="lock">MEMBERS AREA</span></article>
-      <article class="file-card"><div class="file-no">FINAL RECORD</div><h3>The Final Ledger</h3><p>Bring the clues together and unlock a finale shaped by the path you chose.</p><span class="lock">MEMBERS AREA</span></article>
-      <article class="file-card"><div class="file-no">PERSONAL PROGRESS</div><h3>Your Vault</h3><p>A secure member area to save progress, discovered clues, and completed missions across visits.</p><span class="lock">MEMBERS AREA</span></article>
+      <article class="file-card"><div class="file-no">ROOM 01</div><h3>The Archive</h3><p>Original mystery files, timelines, and conflicting accounts to investigate.</p><span class="lock">LIFETIME ACCESS</span></article>
+      <article class="file-card"><div class="file-no">ROOM 02</div><h3>Ghost Mirror</h3><p>Scenario-based psychological decisions and unique shareable identity cards.</p><span class="lock">LIFETIME ACCESS</span></article>
+      <article class="file-card"><div class="file-no">ROOM 03</div><h3>Investigation Chamber</h3><p>Compare statements, find contradictions, and arrange your evidence board.</p><span class="lock">LIFETIME ACCESS</span></article>
+      <article class="file-card"><div class="file-no">ROOM 04</div><h3>Choice Engine</h3><p>Branching moral dilemmas and scenario decisions leading to multiple outcomes.</p><span class="lock">LIFETIME ACCESS</span></article>
+      <article class="file-card"><div class="file-no">ROOM 05</div><h3>Leaderboard & Ranks</h3><p>Track your puzzle completion time and see where you stand for top prizes.</p><span class="lock">LIFETIME ACCESS</span></article>
+      <article class="file-card"><div class="file-no">ROOM 06</div><h3>Prize Vault</h3><p>Direct tracking for iPhone 18 Pro, ₹1 Lakh cash, and tier winner distributions.</p><span class="lock">LIFETIME ACCESS</span></article>
     </div>
   </section>
 
-  <section class="section" id="submit-section">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Secure gateway</div>
-        <h2>Lock Your Entry & Unlock Live Stream</h2>
-      </div>
-      <div class="section-intro">Submit your note or trace, pay ₹599 via UPI, and enter your 12-digit UTR below to instantly verify your lifetime access.</div>
-    </div>
-    
-    <div class="pricing" style="grid-template-columns: 1fr;">
-      <div id="vaultStage">
-        <div class="relative mb-4">
-          <textarea id="confessionInput" rows="4" maxlength="1000" placeholder="Apna unsaid sach, galti ya raaz yahan likho..." class="w-full bg-neutral-950/90 border border-neutral-800 rounded-lg p-3.5 text-sm focus:border-red-600 focus:outline-none text-white resize-none"></textarea>
-          <div class="flex justify-between text-[10px] mono text-neutral-500 mt-1.5 px-1">
-            <span>SANITIZER: ACTIVE</span><span id="charCount">0 / 1000</span>
-          </div>
-        </div>
-
-        <div id="stepInitiate">
-          <button onclick="openPaymentModal()" class="btn" style="width:100%">UNLOCK ARCHIVE & VAULT — ₹599</button>
-          <p class="micro text-center mt-2">Instant QR & 1-Tap UPI (PhonePe / GPay / Paytm / BHIM)</p>
-        </div>
-
-        <div id="stepVerify" class="hidden flex-col gap-3 mt-4 pt-4 border-t border-neutral-800">
-          <p class="text-xs text-amber-200/90 mono font-semibold">Payment Completed?</p>
-          <p class="text-[11px] text-neutral-400">Enter the 12-digit UPI Reference / UTR Number from your payment app screen:</p>
-          <input type="text" id="utrInput" inputmode="numeric" maxlength="12" placeholder="Enter 12-digit UTR" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-3 text-xs text-white mono focus:border-red-500 focus:outline-none tracking-widest">
-          <button id="verifyBtn" onclick="submitUtrForVerification()" class="btn" style="width:100%; background:var(--red); border-color:#d43b2d; color:#fff">SUBMIT FOR VERIFICATION</button>
-          <p id="verifyMsg" class="text-[10px] text-center text-neutral-400 mt-1 mono hidden"></p>
-        </div>
-
-        <div id="pendingBox" class="hidden border border-yellow-900/60 bg-neutral-950 p-6 rounded-lg mono text-center flex flex-col items-center mt-4">
-          <div class="text-[10px] text-yellow-500 tracking-widest uppercase mb-1">● VERIFICATION IN PROGRESS</div>
-          <h2 class="text-base font-bold text-white uppercase tracking-wider mb-2" style="font-size:18px">ENTRY PENDING</h2>
-          <p id="pollStatus" class="text-xs text-neutral-400 mb-2">Waiting for automated clearance...</p>
-          <div id="pendingNode" class="text-[11px] text-yellow-500 mono mt-1">NODE // PENDING</div>
-        </div>
-
-        <div id="accessBox" class="hidden border border-green-900/60 bg-neutral-950 p-6 rounded-lg mono text-center flex flex-col items-center mt-4">
-          <div class="text-[10px] text-green-500 tracking-widest uppercase mb-1">● ACCESS GRANTED</div>
-          <h2 class="text-lg font-bold text-white uppercase tracking-wider mb-1" id="unlockedPersona" style="font-size:20px">THE PRAGMATIC SINNER</h2>
-          <p class="text-xs text-neutral-400 mb-3" id="unlockedNode">NODE // 000001</p>
-          <p class="text-xs text-neutral-300">Your entry is permanently sealed. Full archive and live stream unlocked.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Realtime feed</div>
-        <h2>Live Vault Stream</h2>
-      </div>
-      <div id="lockBadge" class="tag" style="background:#2a1c13; color:#c49a63;">LOCKED</div>
-    </div>
-    <div class="file-card">
-      <div class="flex flex-col gap-3 text-xs" id="feedList">
-        <p class="text-neutral-500 text-[11px] mono">Connecting to archive feed...</p>
-      </div>
-    </div>
-  </section>
-
+  <!-- Direct Cashfree Checkout Section -->
   <section class="section" id="membership">
     <div class="pricing">
       <div>
-        <div class="eyebrow">One payment · Lifetime membership</div>
-        <h2 class="serif">Unlock the hidden archive.</h2>
-        <div class="price">₹599<small>ONE-TIME MEMBERSHIP PRICE</small></div>
-        <p class="section-intro">A secure single-purchase membership for the initial archive and all included features.</p>
-        <div class="callout">Instant secure entry upon automated server verification.</div>
+        <div class="eyebrow">One payment · Lifetime Tournament Access</div>
+        <h2 class="serif">Secure Your Entry Pass.</h2>
+        <div class="price">₹599<small>LIFETIME ENTRY FEE</small></div>
+        <p class="section-intro">Instant automated access via Cashfree payment gateway. Play, solve, and compete for top prizes.</p>
+        <div class="callout">100% Safe & Secure UPI / Card / Netbanking checkout via Cashfree.</div>
       </div>
       <div>
         <ul class="features">
-          <li>Original fictional mystery files</li>
-          <li>Interactive clue-based missions</li>
-          <li>Scenario-based Ghost Mirror</li>
-          <li>Branching choices and endings</li>
-          <li>Live Vault Stream access</li>
-          <li>Mobile-friendly experience</li>
+          <li>Full access to all mystery puzzle rooms</li>
+          <li>Eligibility for iPhone 18 Pro & Cash rewards</li>
+          <li>Leaderboard tracking & skill ranking</li>
+          <li>Exclusive community drop files</li>
+          <li>Mobile-optimized fast experience</li>
         </ul>
-        <a href="#submit-section" class="btn" style="width:100%;margin-top:14px;text-align:center">Secure Your Access · ₹599</a>
+        <!-- Yahan apna Cashfree Payment Link daal dein -->
+        <a href="https://payments.cashfree.com/links/your-cashfree-link-here" target="_blank" class="btn" style="width:100%;margin-top:14px;text-align:center">Pay ₹599 via Cashfree & Enter</a>
       </div>
     </div>
   </section>
@@ -258,9 +198,10 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
 
 <footer class="footer">
   THE BLACK LEDGER · THE HIDDEN HUMAN ARCHIVE<br>
-  <span style="display:inline-block;margin-top:10px">Secure node tracking and automated verification system.</span>
+  <span style="display:inline-block;margin-top:10px">Skill-based competitive challenge. Terms & Conditions apply.</span>
 </footer>
 
+<!-- Modals -->
 <div class="modal" id="storyModal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeModal()">
   <div class="modal-panel">
     <button class="close" onclick="closeModal()">CLOSE ×</button>
@@ -270,383 +211,26 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;ba
     <p>Three people confirmed hearing the wall clock stop at 11:47 PM. One person claimed the clock had been broken for months. Another insisted they saw light beneath the door at midnight.</p>
     <p>On the back of the letter, in smaller handwriting, was a single question:</p>
     <p style="color:#d7b47e;font-family:Cinzel,serif;font-size:18px">“Who benefits if everyone remembers the same story?”</p>
-    <div class="callout">FILE NOTE: All names and events in this experience are fictional. The clues are designed for entertainment and critical thinking.</div>
-    <button onclick="closeModalAndVerify()" class="btn" style="width:100%">I HAVE PAID (ENTER UTR)</button>
+    <div class="callout">FILE NOTE: All clues are designed for entertainment, deductive reasoning, and skill challenges.</div>
+    <button class="btn" style="margin-top:18px" onclick="closeModal();document.getElementById('firstChoices').scrollIntoView({behavior:'smooth',block:'center'})">Make your decision</button>
   </div>
 </div>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth, signInAnonymously, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAlmnaSJmU5FRTcpbmDa6MO0hdUwIeLOZc",
-  authDomain: "blackledger-759c1.firebaseapp.com",
-  databaseURL: "https://blackledger-759c1-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "blackledger-759c1",
-  storageBucket: "blackledger-759c1.appspot.com",
-  messagingSenderId: "1064101172402",
-  appId: "1:1064101172402:web:951950dd4e136c44e965eb"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getDatabase(app);
-
-const input = document.getElementById("confessionInput");
-const AMOUNT = 599;
-
-let currentUser = null;
-let statusListener = null;
-let feedListener = null;
-let archiveListener = null;
-let restoreStarted = false;
-
-input.addEventListener("input", () => {
-  document.getElementById("charCount").textContent = `${input.value.length} / 1000`;
-});
-
-async function startAuthentication() {
-  try {
-    await setPersistence(auth, browserLocalPersistence);
-    if (!auth.currentUser) {
-      await signInAnonymously(auth);
-    }
-  } catch (error) {
-    console.error("Authentication error:", error);
-  }
-}
-
-onAuthStateChanged(auth, async user => {
-  if (!user) return;
-  currentUser = user;
-  if (!restoreStarted) {
-    restoreStarted = true;
-    await restorePayment();
-    startRealtimeFeed();
-    startArchiveCounter();
-  }
-});
-
-startAuthentication();
-
-window.openPaymentModal = function() {
-  const text = input.value.trim();
-  if (text.length < 10) {
-    alert("Enter at least 10 characters of your note or trace to proceed.");
-    return;
-  }
-  document.getElementById("payModal").classList.add("open");
-};
-
-window.closePaymentModal = function() {
-  document.getElementById("payModal").classList.remove("open");
-};
-
-window.closeModalAndVerify = function() {
-  document.getElementById("payModal").classList.remove("open");
-  document.getElementById("stepInitiate").classList.add("hidden");
-  document.getElementById("stepVerify").classList.remove("hidden");
-  document.getElementById("stepVerify").classList.add("flex");
-};
-
-function generateRequestId() {
-  if (window.crypto && crypto.randomUUID) {
-    return "REQ_" + crypto.randomUUID().replaceAll("-", "").substring(0, 20).toUpperCase();
-  }
-  return "REQ_" + Date.now() + "_" + Math.random().toString(36).substring(2, 8).toUpperCase();
-}
-
-window.submitUtrForVerification = async function() {
-  const text = input.value.trim();
-  const utr = document.getElementById("utrInput").value.trim();
-  const btn = document.getElementById("verifyBtn");
-  const msg = document.getElementById("verifyMsg");
-
-  if (text.length < 10) {
-    alert("Enter at least 10 characters.");
-    return;
-  }
-  if (!/^\d{12}$/.test(utr)) {
-    alert("Please enter a valid 12-digit UTR.");
-    return;
-  }
-  if (!currentUser) {
-    alert("Secure connection is starting. Please wait.");
-    return;
-  }
-
-  btn.disabled = true;
-  btn.innerText = "TRANSMITTING TRACE...";
-  msg.classList.remove("hidden");
-  msg.className = "text-[10px] text-center text-neutral-400 mt-1 mono";
-  msg.innerText = "Sending payment trace securely...";
-
-  try {
-    const requestId = generateRequestId();
-    const requestRef = ref(db, `paymentRequests/${requestId}`);
-    const requestData = {
-      ownerUid: currentUser.uid,
-      utr: utr,
-      confession: text,
-      amount: AMOUNT,
-      status: "PENDING",
-      timestamp: Date.now()
-    };
-
-    await set(requestRef, requestData);
-    localStorage.setItem("bl_requestId", requestId);
-    localStorage.setItem("bl_confession", text);
-    localStorage.setItem("bl_utr", utr);
-
-    showPending(requestId);
-    listenToStatus(requestId);
-  } catch (error) {
-    console.error("Firebase submission error:", error);
-    alert("Submission failed: " + error.message);
-    btn.disabled = false;
-    btn.innerText = "SUBMIT FOR VERIFICATION";
-  }
-};
-
-function showPending(requestId) {
-  document.getElementById("stepInitiate").classList.add("hidden");
-  document.getElementById("stepVerify").classList.remove("hidden");
-  document.getElementById("stepVerify").classList.add("flex");
-  document.getElementById("pendingBox").classList.remove("hidden");
-  document.getElementById("pollStatus").innerText = "Waiting for automated clearance...";
-  document.getElementById("pendingNode").innerText = "NODE // PENDING";
-
-  const msg = document.getElementById("verifyMsg");
-  msg.className = "text-[10px] text-center text-yellow-500 mt-1 mono";
-  msg.classList.remove("hidden");
-  msg.innerText = "Waiting for automated clearance...";
-
-  const btn = document.getElementById("verifyBtn");
-  btn.disabled = true;
-  btn.innerText = "VERIFICATION PENDING";
-}
-
-function listenToStatus(requestId) {
-  if (statusListener) {
-    statusListener();
-    statusListener = null;
-  }
-  const statusRef = ref(db, `paymentRequests/${requestId}/status`);
-  statusListener = onValue(statusRef, async snapshot => {
-    const status = snapshot.val();
-    if (status === "APPROVED") {
-      const fullRef = ref(db, `paymentRequests/${requestId}`);
-      const fullSnap = await get(fullRef);
-      const data = fullSnap.val() || {};
-      showVerified({
-        nodeId: data.nodeNumber || null,
-        persona: data.persona || "THE PRAGMATIC SINNER"
-      });
-    } else if (status === "REJECTED") {
-      showRejected();
-    } else {
-      showPending(requestId);
-    }
-  });
-}
-
-function showVerified(data) {
-  document.getElementById("pendingBox").classList.add("hidden");
-  document.getElementById("stepInitiate").classList.add("hidden");
-  document.getElementById("stepVerify").classList.add("hidden");
-  document.getElementById("stepVerify").classList.remove("flex");
-  document.getElementById("accessBox").classList.remove("hidden");
-
-  const node = data.nodeId || "PENDING";
-  document.getElementById("unlockedNode").textContent = `NODE // ${node}`;
-  document.getElementById("unlockedPersona").textContent = data.persona || "THE PRAGMATIC SINNER";
-
-  localStorage.setItem("bl_verified", "true");
-  startRealtimeFeed();
-  startArchiveCounter();
-
-  window.scrollTo({
-    top: document.getElementById("accessBox").offsetTop - 20,
-    behavior: "smooth"
-  });
-}
-
-function showRejected() {
-  if (statusListener) {
-    statusListener();
-    statusListener = null;
-  }
-  localStorage.removeItem("bl_requestId");
-  localStorage.removeItem("bl_confession");
-  localStorage.removeItem("bl_utr");
-  localStorage.removeItem("bl_verified");
-
-  document.getElementById("pendingBox").classList.add("hidden");
-  document.getElementById("stepVerify").classList.add("hidden");
-  document.getElementById("stepVerify").classList.remove("flex");
-  document.getElementById("stepInitiate").classList.remove("hidden");
-  document.getElementById("utrInput").value = "";
-
-  const btn = document.getElementById("verifyBtn");
-  btn.disabled = false;
-  btn.innerText = "SUBMIT FOR VERIFICATION";
-
-  const msg = document.getElementById("verifyMsg");
-  msg.className = "text-[10px] text-center text-red-500 mt-1 mono";
-  msg.classList.remove("hidden");
-  msg.innerText = "Payment could not be verified. Please make a new payment.";
-}
-
-async function restorePayment() {
-  const requestId = localStorage.getItem("bl_requestId");
-  if (!requestId || !currentUser) return;
-
-  const savedConfession = localStorage.getItem("bl_confession");
-  if (savedConfession) {
-    input.value = savedConfession;
-    document.getElementById("charCount").textContent = `${savedConfession.length} / 1000`;
-  }
-
-  const savedUtr = localStorage.getItem("bl_utr");
-  if (savedUtr) {
-    document.getElementById("utrInput").value = savedUtr;
-  }
-
-  const requestRef = ref(db, `paymentRequests/${requestId}`);
-  onValue(requestRef, snapshot => {
-    const data = snapshot.val();
-    if (!data) return;
-    if (data.ownerUid && data.ownerUid !== currentUser.uid) return;
-
-    if (data.status === "PENDING") {
-      showPending(requestId);
-    } else if (data.status === "APPROVED") {
-      showVerified({
-        nodeId: data.nodeNumber || "PENDING",
-        persona: data.persona || "THE PRAGMATIC SINNER"
-      });
-    } else if (data.status === "REJECTED") {
-      showRejected();
-    }
-  });
-  listenToStatus(requestId);
-}
-
-function startArchiveCounter() {
-  if (archiveListener) {
-    archiveListener();
-    archiveListener = null;
-  }
-  const counterRef = ref(db, "ledgerCounter");
-  onValue(counterRef, snapshot => {
-    const total = Number(snapshot.val() || 0);
-    document.getElementById("counterDisplay").textContent = "#" + String(total).padStart(3, "0");
-  }, error => {
-    console.error("Archive counter error:", error);
-  });
-}
-
-function startRealtimeFeed() {
-  if (feedListener) {
-    feedListener();
-    feedListener = null;
-  }
-  const feedRef = ref(db, "publicFeed");
-  onValue(feedRef, snapshot => {
-    const feed = document.getElementById("feedList");
-    const badge = document.getElementById("lockBadge");
-
-    const isVerified = localStorage.getItem("bl_verified") === "true";
-    const ownRequestId = localStorage.getItem("bl_requestId");
-
-    if (isVerified) {
-      badge.textContent = "UNLOCKED";
-      badge.style.background = "#1b2a1c";
-      badge.style.color = "#8fba91";
-    } else {
-      badge.textContent = "LOCKED";
-      badge.style.background = "#2a1c13";
-      badge.style.color = "#c49a63";
-    }
-
-    feed.replaceChildren();
-
-    if (!snapshot.exists()) {
-      const p = document.createElement("p");
-      p.className = "text-neutral-500 text-[11px] mono";
-      p.textContent = "No approved entries yet. Be the first.";
-      feed.appendChild(p);
-      return;
-    }
-
-    const data = snapshot.val();
-    const entries = Object.entries(data).map(([id, val]) => ({ id, ...val })).filter(entry => entry.status === "APPROVED" && entry.confession);
-
-    entries.sort((a, b) => (b.approvedAt || b.reviewedAt || b.timestamp || 0) - (a.approvedAt || a.reviewedAt || a.timestamp || 0));
-
-    let count = 0;
-    for (const entry of entries) {
-      count++;
-      const itemDiv = document.createElement("div");
-      const isOwn = entry.id === ownRequestId;
-
-      itemDiv.className = isOwn ?
-        "border border-green-800 bg-green-950/20 p-3 rounded text-[11px] mono" :
-        "border border-neutral-800 bg-neutral-900/40 p-3 rounded text-[11px] mono";
-
-      const headerRow = document.createElement("div");
-      headerRow.className = "flex justify-between text-neutral-500 mb-1 text-[9px]";
-
-      const nodeLabel = entry.nodeNumber ? `NODE // ${entry.nodeNumber}` : "NODE // UNKNOWN";
-      const ownerLabel = isOwn ? "YOUR ENTRY" : "VERIFIED TRACE";
-
-      headerRow.innerHTML = `<span>${nodeLabel}</span><span>${ownerLabel}</span>`;
-      itemDiv.appendChild(headerRow);
-
-      if (isOwn) {
-        const ownBadge = document.createElement("div");
-        ownBadge.className = "text-[9px] text-green-500 mb-2 uppercase tracking-wider";
-        ownBadge.textContent = "● YOUR APPROVED ENTRY";
-        itemDiv.appendChild(ownBadge);
-      }
-
-      const contentP = document.createElement("p");
-      contentP.className = "leading-relaxed text-xs";
-
-      if (isVerified) {
-        contentP.classList.add("text-neutral-300");
-        contentP.textContent = `"${entry.confession}"`;
-      } else {
-        contentP.classList.add("blurred", "text-neutral-400");
-        contentP.textContent = `"${entry.confession}"`;
-      }
-
-      itemDiv.appendChild(contentP);
-      feed.appendChild(itemDiv);
-    }
-
-    if (count === 0) {
-      const p = document.createElement("p");
-      p.className = "text-neutral-500 text-[11px] mono";
-      p.textContent = "Waiting for approved archive entries...";
-      feed.appendChild(p);
-    }
-  }, error => {
-    console.error("Realtime public feed error:", error);
-    const feed = document.getElementById("feedList");
-    feed.replaceChildren();
-    const p = document.createElement("p");
-    p.className = "text-red-500 text-[11px] mono";
-    p.textContent = "Archive connection unavailable.";
-    feed.appendChild(p);
-  });
-}
-</script>
 
 <script>
-function pickFirst(btn,type){document.querySelectorAll('#firstChoices .choice').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');const texts={time:'You noticed the timeline first. In this story, timestamps may be clues—but verify whether the clock itself can be trusted.',message:'You focused on what was omitted. Missing information can be useful, but an omission alone does not prove a cover-up.',access:'You started with access and opportunity. Check who had keys, but do not assume that access means guilt.'};const box=document.getElementById('firstResult');box.textContent=texts[type];box.style.display='block'}
-function openModal(){document.getElementById('storyModal').classList.add('open');document.body.style.overflow='hidden'}function closeModal(){document.getElementById('storyModal').classList.remove('open');document.body.style.overflow=''}
+function pickFirst(btn,type){
+  document.querySelectorAll('#firstChoices .choice').forEach(x=>x.classList.remove('selected'));
+  btn.classList.add('selected');
+  const texts={
+    time:'You noticed the timeline first. Timestamps are vital clues in competitive deductions—accuracy matters!',
+    message:'You focused on what was omitted. Finding hidden omissions is key to solving top-tier mystery files.',
+    access:'You started with access and opportunity. A solid investigator checks every locked perimeter first.'
+  };
+  const box=document.getElementById('firstResult');
+  box.textContent=texts[type];
+  box.style.display='block';
+}
+function openModal(){document.getElementById('storyModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('storyModal').classList.remove('open');document.body.style.overflow=''}
 </script>
 </body>
 </html>
