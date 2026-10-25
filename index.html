@@ -31,7 +31,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 .hero h1{font:700 clamp(34px, 5.5vw, 64px)/1.1 Cinzel,serif;letter-spacing:0.02em;margin:14px 0 20px}
 .hero p{max-width:640px;margin:0 auto 28px;color:var(--muted);font-size:16px;line-height:1.8}
 
-.btn-primary{background:linear-gradient(135deg,#f3c68a,#c99353);color:#120d0a;font:700 13px 'DM Mono';letter-spacing:0.1em;text-transform:uppercase;padding:18px 36px;border-radius:4px;text-decoration:none;display:inline-block;transition:0.3s;box-shadow:0 10px 30px rgba(201,147,83,0.3);border:1px solid #ffeba3}
+.btn-primary{background:linear-gradient(135deg,#f3c68a,#c99353);color:#120d0a;font:700 13px 'DM Mono';letter-spacing:0.1em;text-transform:uppercase;padding:18px 36px;border-radius:4px;text-decoration:none;display:inline-block;transition:0.3s;box-shadow:0 10px 30px rgba(201,147,83,0.3);border:1px solid #ffeba3;cursor:pointer}
 .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 15px 35px rgba(201,147,83,0.4)}
 
 .btn-secondary-custom{background:transparent;border:1px solid rgba(223,177,117,0.4);color:var(--gold);font:700 12px 'DM Mono';letter-spacing:0.1em;text-transform:uppercase;padding:14px 28px;border-radius:4px;text-decoration:none;display:inline-block;transition:0.3s;margin-left:10px;}
@@ -68,12 +68,16 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 .card p{color:var(--muted);font-size:12px;line-height:1.6;margin:0}
 .card-featured{background:linear-gradient(145deg,#20140f,#0d0806);border:1px solid var(--gold);box-shadow:0 0 30px rgba(223,177,117,0.15)}
 
-/* Interactive Mini-Riddle Box */
-.riddle-box { background: linear-gradient(145deg, #17110e, #0a0706); border: 1px solid rgba(223,177,117,0.3); border-radius: 10px; padding: 35px; max-width: 800px; margin: 0 auto; text-align: left; box-shadow: 0 15px 40px rgba(0,0,0,0.7); }
-.riddle-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
-.riddle-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(223,177,117,0.2); padding: 14px 18px; color: var(--cream); font: 13px 'DM Mono'; border-radius: 6px; cursor: pointer; text-align: left; transition: 0.2s; }
-.riddle-btn:hover { background: rgba(223,177,117,0.1); border-color: var(--gold); }
-.riddle-result { margin-top: 15px; font: 13px 'DM Mono'; padding: 12px; border-radius: 6px; display: none; }
+/* AI Video Explainer Box */
+.ai-video-box { background: linear-gradient(145deg, #17110e, #0a0706); border: 1px solid rgba(223,177,117,0.4); border-radius: 12px; padding: 30px; max-width: 750px; margin: 0 auto; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.7); }
+.video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 1px solid rgba(223,177,117,0.3); background: #000; margin-top: 15px; }
+.video-container iframe, .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/* Interactive Game Portal */
+.game-portal { background: linear-gradient(145deg, #150f0c, #080605); border: 2px solid var(--gold); border-radius: 12px; padding: 35px; max-width: 800px; margin: 0 auto; text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+.game-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(223,177,117,0.3); padding: 12px 16px; color: var(--cream); font: 14px 'DM Mono'; border-radius: 6px; width: 100%; margin-top: 15px; }
+.game-btn { background: var(--gold); color: #120d0a; font: 700 12px 'DM Mono'; letter-spacing: 0.1em; padding: 12px 24px; border-radius: 6px; border: none; cursor: pointer; margin-top: 15px; transition: 0.2s; }
+.game-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
 .pricing-box{background:linear-gradient(160deg,#16100d,#090605);border:2px solid rgba(223,177,117,0.3);border-radius:12px;padding:45px 30px;text-align:center;max-width:650px;margin:auto;box-shadow:0 25px 60px rgba(0,0,0,0.9)}
 .price-tag{font:700 52px Cinzel,serif;color:var(--gold-light);margin:12px 0 5px;text-shadow:0 0 20px rgba(223,177,117,0.3)}
@@ -116,7 +120,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
     <h1 class="gold-glow">Dimaag Lagao, Secret Solve Karo & <span style="color:var(--gold-light)">iPhone 18 Pro + ₹1 Lakh</span> Jeeto!</h1>
     <p>Ek aisi online mystery challenge jahan 2,000 registrations poore hone ke baad grand tournament unlock hoga aur top performers grand prize jeetenge.</p>
     
-    <!-- Early Bird Bonus Alert Banner (Added Element 4) -->
+    <!-- Early Bird Bonus Alert Banner -->
     <div class="early-bird-banner">
       <span style="font-size: 22px;">🎁</span>
       <div style="font: 12px 'DM Mono'; color: #f3ede2;">
@@ -145,7 +149,51 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
     <div style="font:11px 'DM Mono'; color:var(--muted); margin-top:14px; letter-spacing:0.1em;">🔒 100% Secure Payment via Cashfree • Verified Creator Backed</div>
   </section>
 
-  <!-- 100% Refund Guarantee & Fair Play Badge (Added Element 1 & Creator Authority) -->
+  <!-- AI Explainer Video Section -->
+  <section class="section" style="padding-top: 0px; padding-bottom: 20px;">
+    <div class="ai-video-box">
+      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:8px;">🎥 Watch & Understand</div>
+      <h3 style="font:700 20px Cinzel,serif; margin-bottom:10px; color:var(--cream);">Dekhiye Kaise Kaam Karega Yeh Poora Tournament</h3>
+      <p style="color:var(--muted); font-size:12px; margin-bottom:15px;">Is video mein dekhein ki 2,000 milestone, ID card, aur iPhone 18 Pro jeetne ka poora safar kaise hoga:</p>
+      
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" title="The Black Ledger Explainer Video" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Playable Mystery Game (Levels 1 to 3) -->
+  <section class="section" id="game-section">
+    <div class="section-title">
+      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Interactive Practice Portal</div>
+      <h2>Playable Mystery Challenge</h2>
+      <p>Apna membership verify karein ya practice levels solve karke apni detective skills test karein.</p>
+    </div>
+
+    <div class="game-portal">
+      <div id="authCheckScreen">
+        <div style="font:12px 'DM Mono'; color:var(--gold); margin-bottom:6px;">AGENT VERIFICATION</div>
+        <h3 style="font:700 18px Cinzel,serif; margin-bottom:10px;">Enter Your Unique Access ID or Email</h3>
+        <p style="color:var(--muted); font-size:12px; margin-bottom:15px;">Agar aapne ₹599 pay kar liya hai, toh apna Registered Email / Access ID yahan daalkar apna saved progress access karein:</p>
+        <input type="text" id="agentInputId" class="game-input" placeholder="e.g. AGENT-8842 or your email">
+        <button class="game-btn" onclick="verifyAgentAccess()">Access My Vault & Game</button>
+        <div id="authMessage" style="font:12px 'DM Mono'; margin-top:10px; color:#ff6b65; display:none;"></div>
+      </div>
+
+      <div id="gamePlayScreen" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(223,177,117,0.2); padding-bottom:10px; margin-bottom:15px;">
+          <span style="font:12px 'DM Mono'; color:var(--gold);" id="displayAgentName">AGENT: VERIFIED</span>
+          <span style="font:12px 'DM Mono'; color:#22c55e;" id="displayLevelBadge">LEVEL 1 / 3 UNLOCKED</span>
+        </div>
+
+        <div id="levelContentBox">
+          <!-- Dynamic Level content populated via JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 100% Refund Guarantee & Fair Play Badge -->
   <section class="section" style="padding-top: 10px; padding-bottom: 20px;">
     <div class="fair-play-badge">
       <div class="fair-play-icon">🛡️</div>
@@ -153,23 +201,6 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
         <div class="fair-play-title">100% Refund Guarantee & Zero Financial Risk</div>
         <p class="fair-play-desc">Agar kisi wajah se 2,000 registrations ka milestone achieve nahi hota hai, toh aapka poora <strong>₹599 ka amount bina kisi deduction ke 100% refund</strong> kar diya jayega. Your money is completely safe.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Interactive Mini-Riddle Box -->
-  <section class="section" style="padding-top: 0px; padding-bottom: 20px;">
-    <div class="riddle-box">
-      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:8px;">🧩 Quick IQ Test // Sample Clue</div>
-      <h3 style="font:700 18px Cinzel,serif; margin-bottom:10px; color:var(--cream);">"A man is found dead in a locked room with no windows. The floor is covered in water. How did he die?"</h3>
-      <p style="color:var(--muted); font-size:12px; margin-bottom:15px;">Choose the correct deduction to test your detective skills:</p>
-      
-      <div class="riddle-options">
-        <button class="riddle-btn" onclick="checkRiddle(false)">A) He slipped and drowned on the floor</button>
-        <button class="riddle-btn" onclick="checkRiddle(true)">B) He stood on a block of ice that melted</button>
-        <button class="riddle-btn" onclick="checkRiddle(false)">C) Rain leaked through the locked ceiling</button>
-        <button class="riddle-btn" onclick="checkRiddle(false)">D) Someone flooded the room from outside</button>
-      </div>
-      <div id="riddleResult" class="riddle-result"></div>
     </div>
   </section>
 
@@ -198,13 +229,13 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       </div>
       <div class="card">
         <span class="card-num">RANK #04 - #100</span>
-        <h3>Cash & Rewards</h3>
-        <p>Top 100 mein aane wale baaki sabhi players ke liye cash prizes aur perks.</p>
+        <h3>₹5,000 Each (97 Winners)</h3>
+        <p>Top 100 mein aane wale baaki sabhi 97 players ko ₹5,000 ka guaranteed cash prize milega.</p>
       </div>
     </div>
   </section>
 
-  <!-- How It Works & Post-Payment Exact Steps (Added Element 3) -->
+  <!-- How It Works & Post-Payment Exact Steps -->
   <section class="section" style="background:linear-gradient(180deg, transparent, rgba(20,13,10,0.4), transparent);">
     <div class="section-title">
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Crystal Clear Process</div>
@@ -263,7 +294,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
     </div>
   </section>
 
-  <!-- FAQ Section (Updated with Refund & Creator Details) -->
+  <!-- FAQ Section -->
   <section class="section">
     <div class="section-title">
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Support & Trust</div>
@@ -305,38 +336,18 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 </footer>
 
 <script>
-// Dynamic Date Calculation: Tomorrow + 1 Month
 let targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 1); // Tomorrow
-targetDate.setMonth(targetDate.getMonth() + 1); // Plus 1 month
+targetDate.setDate(targetDate.getDate() + 1);
+targetDate.setMonth(targetDate.getMonth() + 1);
 const options = { day: 'numeric', month: 'short', year: 'numeric' };
 const formattedDate = targetDate.toLocaleDateString('en-GB', options);
 
-// Automatically update elements with the exact calculated date & security notes
 document.getElementById('milestoneDateText').innerHTML = `*Estimated Timeline: Tournament 2,000 registrations poore hone ke baad <strong>${formattedDate}</strong> ko officially unlock hoga.`;
 document.getElementById('prizePoolTitle').textContent = `Grand Prize Pool (Unlocks ${formattedDate})`;
 document.getElementById('pricingSubText').textContent = `ONE-TIME FEE • 100% REFUNDABLE • UNLOCKS ON ${formattedDate.toUpperCase()}`;
 document.getElementById('faqUnlockText').textContent = `Jaise hi total 2,000 registrations complete ho jayengi, tournament theek 1 month baad yaani ${formattedDate} ko officially unlock ho jayega.`;
 document.getElementById('stickyUnlockText').textContent = `Unlocks On: ${formattedDate}`;
 
-// Mini Riddle Checker
-function checkRiddle(isCorrect) {
-  const resultBox = document.getElementById('riddleResult');
-  resultBox.style.display = 'block';
-  if(isCorrect) {
-    resultBox.style.background = 'rgba(34, 197, 94, 0.15)';
-    resultBox.style.border = '1px solid rgba(34, 197, 94, 0.4)';
-    resultBox.style.color = '#4ade80';
-    resultBox.innerHTML = '<strong>Correct Deduction!</strong> Your detective instincts are sharp. Pay ₹599 below with 100% refund safety to secure your slot.';
-  } else {
-    resultBox.style.background = 'rgba(185, 43, 39, 0.15)';
-    resultBox.style.border = '1px solid rgba(185, 43, 39, 0.4)';
-    resultBox.style.color = '#ff6b65';
-    resultBox.innerHTML = '<strong>Incorrect!</strong> Think about physical clues that leave no trace after time passes. Try option B!';
-  }
-}
-
-// Dynamic sample name changer for preview ID card
 const sampleNames = ["AGENT: RAHUL SHARMA", "AGENT: AMAN VERMA", "AGENT: PRIYA GUPTA", "AGENT: KVR MALHOTRA", "AGENT: VIKRAM ROY"];
 let nameIdx = 0;
 setInterval(() => {
@@ -346,6 +357,113 @@ setInterval(() => {
     agentEl.textContent = sampleNames[nameIdx];
   }
 }, 3000);
+
+const mysteryLevels = [
+  {
+    level: 1,
+    title: "Level 1: The Locked Study",
+    clue: "A victim is found at a mahogany desk. The window is bolted from the inside. A half-empty glass of poisoned wine sits next to a calendar circled on '14'. What was the primary contradiction in the room?",
+    answer: "window",
+    hint: "Think about how someone could leave a locked room without unbolting from inside."
+  },
+  {
+    level: 2,
+    title: "Level 2: The Cipher Notebook",
+    clue: "A torn page reads: 'SHIFT 3 BACK: WKH EODFN OHGJHU'. Decode the secret message to proceed.",
+    answer: "the black ledger",
+    hint: "Move each letter 3 steps back in the alphabet (W -> T, K -> H...). Type the decoded phrase."
+  },
+  {
+    level: 3,
+    title: "Level 3: The Vault Passcode",
+    clue: "Final clue: 'I have keys but no locks. I have space but no room. You can enter, but can't go outside. What am I?'",
+    answer: "keyboard",
+    hint: "You are touching one right now to type your answer."
+  }
+];
+
+let currentAgent = null;
+let currentLevel = 1;
+
+function verifyAgentAccess() {
+  const inputVal = document.getElementById('agentInputId').value.trim();
+  const msgBox = document.getElementById('authMessage');
+
+  if(!inputVal) {
+    msgBox.style.display = 'block';
+    msgBox.textContent = "Please enter your valid Access ID or Email.";
+    return;
+  }
+
+  let savedData = localStorage.getItem('ledger_agent_' + inputVal);
+  if(!savedData) {
+    currentAgent = { id: inputVal, level: 1 };
+    localStorage.setItem('ledger_agent_' + inputVal, JSON.stringify(currentAgent));
+  } else {
+    currentAgent = JSON.parse(savedData);
+  }
+
+    currentLevel = currentAgent.level || 1;
+  document.getElementById('authCheckScreen').style.display = 'none';
+  document.getElementById('gamePlayScreen').style.display = 'block';
+  document.getElementById('displayAgentName').textContent = `AGENT: ${inputVal.toUpperCase()}`;
+  
+  renderGameLevel();
+}
+
+function renderGameLevel() {
+  const box = document.getElementById('levelContentBox');
+  const badge = document.getElementById('displayLevelBadge');
+  
+  if(currentLevel > 3) {
+    badge.textContent = "MISSION COMPLETED!";
+    box.innerHTML = `
+      <div style="text-align:center; padding:20px;">
+        <h3 style="font:700 22px Cinzel,serif; color:var(--gold); margin-bottom:10px;">🏆 Congratulations, Elite Detective!</h3>
+        <p style="color:var(--muted); font-size:13px; line-height:1.6;">Aapne saare 3 mystery levels successfully solve kar liye hain. Aapka naam elite leaderboard ke liye lock kar diya gaya hai.</p>
+        <div style="background:rgba(223,177,117,0.1); border:1px solid var(--gold); padding:15px; border-radius:6px; margin-top:20px; font:13px 'DM Mono'; color:var(--gold-light);">
+          STATUS: TOURNAMENT READY // VIP ACCESS GRANTED
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  badge.textContent = `LEVEL ${currentLevel} / 3 UNLOCKED`;
+  const lvlData = mysteryLevels[currentLevel - 1];
+
+  box.innerHTML = `
+    <h3 style="font:700 16px Cinzel,serif; color:var(--cream); margin-bottom:8px;">${lvlData.title}</h3>
+    <p style="color:var(--muted); font-size:13px; line-height:1.6; margin-bottom:15px;">${lvlData.clue}</p>
+    <input type="text" id="levelAnswerInput" class="game-input" placeholder="Enter your deduction answer...">
+    <div style="display:flex; gap:10px; margin-top:15px;">
+      <button class="game-btn" onclick="submitLevelAnswer()">Submit Deduction</button>
+      <button class="game-btn" style="background:transparent; border:1px solid var(--gold); color:var(--gold);" onclick="alert('Hint: ${lvlData.hint}')">Need Hint?</button>
+    </div>
+    <div id="levelFeedback" style="font:12px 'DM Mono'; margin-top:12px; display:none;"></div>
+  `;
+}
+
+function submitLevelAnswer() {
+  const userAns = document.getElementById('levelAnswerInput').value.trim().toLowerCase();
+  const feedback = document.getElementById('levelFeedback');
+  const correctAns = mysteryLevels[currentLevel - 1].answer;
+
+  feedback.style.display = 'block';
+  if(userAns === correctAns) {
+    feedback.style.color = '#4ade80';
+    feedback.textContent = "Correct deduction! Unlocking next classified file...";
+    
+    currentLevel++;
+    currentAgent.level = currentLevel;
+    localStorage.setItem('ledger_agent_' + currentAgent.id, JSON.stringify(currentAgent));
+
+    setTimeout(renderGameLevel, 1500);
+  } else {
+    feedback.style.color = '#ff6b65';
+    feedback.textContent = "Incorrect deduction. Examine the clues carefully and try again.";
+  }
+}
 </script>
 </body>
 </html>
