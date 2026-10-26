@@ -40,7 +40,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 /* Milestone Progress Box */
 .milestone-box { max-width: 700px; margin: 0 auto 30px; background: linear-gradient(135deg, rgba(223,177,117,0.15), rgba(17,14,12,0.9)); border: 1px solid rgba(223,177,117,0.4); border-radius: 8px; padding: 18px 22px; text-align: left; }
 .progress-bar-bg { background: rgba(255,255,255,0.08); border-radius: 4px; height: 10px; width: 100%; margin-top: 10px; overflow: hidden; position: relative; }
-.progress-bar-fill { background: linear-gradient(90deg, var(--gold), var(--gold-light)); height: 100%; width: 34%; border-radius: 4px; }
+.progress-bar-fill { background: linear-gradient(90deg, var(--gold), var(--gold-light)); height: 100%; width: 34%; border-radius: 4px; transition: width 0.5s ease; }
 
 /* Early Bird Bonus Alert Banner */
 .early-bird-banner { max-width: 700px; margin: 0 auto 25px; background: linear-gradient(135deg, rgba(252,226,184,0.15), rgba(17,14,12,0.9)); border: 1px solid var(--gold); border-radius: 8px; padding: 14px 20px; display: flex; align-items: center; gap: 14px; text-align: left; animation: glowPulse 2s infinite; }
@@ -87,7 +87,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 .checklist li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);color:#d1c7bc;font-size:14px;display:flex;align-items:center}
 .checklist li::before{content:'✓';color:var(--gold);font-weight:bold;margin-right:12px;font-size:16px}
 
-/* Live Interactive ID Card Generator Preview */
+/* Live ID Card Generator & Download Section */
 .id-generator-box { background: linear-gradient(145deg, #18120e, #0a0706); border: 1px solid rgba(223,177,117,0.35); border-radius: 10px; padding: 30px; max-width: 650px; margin: 30px auto 0; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
 .id-card-sample { background: #080605; border: 2px solid var(--gold); border-radius: 8px; padding: 20px; margin-top: 20px; text-align: left; position: relative; overflow: hidden; }
 .id-card-sample::before { content: "VERIFIED"; position: absolute; right: -20px; top: 20px; background: var(--gold); color: #080605; font: 700 9px 'DM Mono'; padding: 4px 30px; transform: rotate(45deg); letter-spacing: 0.1em; }
@@ -99,7 +99,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
 
 .footer{border-top:1px solid rgba(255,255,255,0.06);text-align:center;padding:40px 20px 80px;color:var(--muted);font:11px 'DM Mono';letter-spacing:0.1em}
 
-@media(max-width:768px){.grid-4{grid-template-columns:1fr}.grid-3,.grid-2,.riddle-options{grid-template-columns:1fr}.hero{padding:30px 16px}.section{padding:40px 16px}.fair-play-badge{flex-direction:column;text-align:center}}
+@media(max-width:768px){.grid-4{grid-template-columns:1fr}.grid-3,.grid-2{grid-template-columns:1fr}.hero{padding:30px 16px}.section{padding:40px 16px}.fair-play-badge{flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
@@ -128,14 +128,14 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
       </div>
     </div>
 
-    <!-- Milestone Progress Box with Dynamic Date Calculation -->
+    <!-- Milestone Progress Box with Firebase Real-Time Counter -->
     <div class="milestone-box">
       <div style="display:flex; justify-content:space-between; align-items:center; font:12px 'DM Mono'; color:var(--cream);">
-        <span>🎯 Tournament Unlock Goal: <strong style="color:var(--gold);">684 / 2,000 Agents Joined</strong></span>
-        <span style="color:#ff6b65;">Pending: 1,316 Slots</span>
+        <span>🎯 Tournament Unlock Goal: <strong style="color:var(--gold);" id="slotCountDisplay">684 / 2,000</strong> Agents Joined</span>
+        <span style="color:#ff6b65;" id="pendingSlotsDisplay">Pending: 1,316 Slots</span>
       </div>
       <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width: 34%;"></div>
+        <div class="progress-bar-fill" id="progressBarFill" style="width: 34%;"></div>
       </div>
       <div style="font:10px 'DM Mono'; color:var(--muted); margin-top:8px; text-align:center;" id="milestoneDateText">
         *Estimated Timeline: Tournament 2,000 registrations poore hone ke baad officially unlock hoga.
@@ -261,7 +261,7 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
     </div>
   </section>
 
-  <!-- Pricing / Join Box & Live ID Card Generator Preview -->
+  <!-- Pricing / Join Box & ID Card Generator & Downloader -->
   <section class="section" id="join">
     <div class="pricing-box">
       <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase;">Lifetime Tournament Access</div>
@@ -276,21 +276,25 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
         <li>100% Money-Back Refund Guarantee if milestone isn't reached</li>
       </ul>
 
-      <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="btn-primary" style="width:100%; text-align:center;">Pay ₹599 & Secure Slot Now</a>
+       <a href="https://payments.cashfree.com/forms?code=ledger-599" target="_blank" class="btn-primary" style="width:100%; text-align:center;">Pay ₹599 & Secure Slot Now</a>
     </div>
 
-    <!-- Interactive ID Card Preview Widget -->
+    <!-- Interactive ID Card Generator & Download Widget -->
     <div class="id-generator-box">
-      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.15em; margin-bottom:8px;">ID CARD PREVIEW</div>
-      <h3 style="font:700 18px Cinzel,serif; margin-bottom:12px;">See Your Official Detective Pass</h3>
-      <p style="color:var(--muted); font-size:12px; margin-bottom:15px;">Payment ke baad aapka ID card kuch aisa generate hoga:</p>
+      <div style="font:11px 'DM Mono'; color:var(--gold); letter-spacing:0.15em; margin-bottom:8px;">OFFICIAL ID CARD GENERATOR</div>
+      <h3 style="font:700 18px Cinzel,serif; margin-bottom:12px;">Generate & Download Your Detective Pass</h3>
+      <p style="color:var(--muted); font-size:12px; margin-bottom:15px;">Apna naam ya alias enter karein aur apna official verified ID card download karein:</p>
       
-      <div class="id-card-sample">
-        <div style="font:10px 'DM Mono'; color:var(--gold); letter-spacing:0.1em;">THE BLACK LEDGER // VIP AGENT</div>
-        <div style="font:700 16px Cinzel,serif; margin:8px 0; color:#fff;" id="previewAgentName">AGENT: [YOUR NAME HERE]</div>
-        <div style="font:11px 'DM Mono'; color:var(--muted);">STATUS: <span style="color:#22c55e;">VERIFIED & REFUND-SECURED (684/2000)</span></div>
-        <div style="font:10px 'DM Mono'; color:#a89988; margin-top:6px;">ACCESS: VIP INSTAGRAM CHANNEL & PASS</div>
+      <input type="text" id="customAgentNameInput" class="game-input" placeholder="Enter Your Name (e.g. Rahul Sharma)" value="AGENT: RAHUL SHARMA" oninput="updateIdCardPreview()">
+      
+      <div class="id-card-sample" id="idCardCanvasArea">
+        <div style="font:10px 'DM Mono'; color:var(--gold); letter-spacing:0.1em;">THE BLACK LEDGER // VIP AGENT PASS</div>
+        <div style="font:700 18px Cinzel,serif; margin:10px 0; color:#fff;" id="previewAgentName">AGENT: RAHUL SHARMA</div>
+        <div style="font:11px 'DM Mono'; color:var(--muted);">STATUS: <span style="color:#22c55e;">VERIFIED & REFUND-SECURED (<span id="idCardSlotText">684</span>/2000)</span></div>
+        <div style="font:10px 'DM Mono'; color:#a89988; margin-top:8px;">ACCESS: VIP INSTAGRAM CHANNEL & TOURNAMENT VAULT</div>
       </div>
+
+      <button class="game-btn" style="width:100%; margin-top:15px;" onclick="downloadIdCardImage()">📥 Download ID Card (PNG)</button>
     </div>
   </section>
 
@@ -335,6 +339,64 @@ body::before{content:"";position:fixed;inset:0;background:url('data:image/svg+xm
   <span style="display:inline-block;margin-top:8px">Secure payments processed via Cashfree Gateway. Creator Backed & Support via Instagram VIP Group. Terms apply.</span>
 </footer>
 
+<!-- Firebase SDK Integration & Real-Time Slot Counter -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+  import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+  const appId = typeof __app_id !== 'undefined' ? __app_id : 'ledger-tournament-app';
+  const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "demo", projectId: "demo" };
+
+  let db, auth;
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    auth = getAuth(app);
+    const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
+    if (token) {
+      await signInWithCustomToken(auth, token);
+    } else {
+      await signInAnonymously(auth);
+    }
+  } catch (e) {
+    console.warn("Firebase demo mode active:", e);
+  }
+
+  function updateSlotElements(joinedCount) {
+    const totalGoal = 2000;
+    const pending = Math.max(0, totalGoal - joinedCount);
+    const percentage = Math.min(100, (joinedCount / totalGoal) * 100);
+
+    const slotEl = document.getElementById('slotCountDisplay');
+    const pendingEl = document.getElementById('pendingSlotsDisplay');
+    const barEl = document.getElementById('progressBarFill');
+    const idCardSlot = document.getElementById('idCardSlotText');
+
+    if(slotEl) slotEl.textContent = `${joinedCount} / ${totalGoal}`;
+    if(pendingEl) pendingEl.textContent = `Pending: ${pending} Slots`;
+    if(barEl) barEl.style.width = `${percentage}%`;
+    if(idCardSlot) idCardSlot.textContent = joinedCount;
+  }
+
+  if (db) {
+    try {
+      onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'orders'), (snapshot) => {
+        const baseCount = 684;
+        const liveCount = baseCount + snapshot.size;
+        updateSlotElements(liveCount);
+      }, (error) => {
+        updateSlotElements(684);
+      });
+    } catch(e) {
+      updateSlotElements(684);
+    }
+  } else {
+    updateSlotElements(684);
+  }
+</script>
+
+<!-- Playable Mystery Game, ID Card Generator & LocalStorage Script -->
 <script>
 let targetDate = new Date();
 targetDate.setDate(targetDate.getDate() + 1);
@@ -348,16 +410,72 @@ document.getElementById('pricingSubText').textContent = `ONE-TIME FEE • 100% R
 document.getElementById('faqUnlockText').textContent = `Jaise hi total 2,000 registrations complete ho jayengi, tournament theek 1 month baad yaani ${formattedDate} ko officially unlock ho jayega.`;
 document.getElementById('stickyUnlockText').textContent = `Unlocks On: ${formattedDate}`;
 
-const sampleNames = ["AGENT: RAHUL SHARMA", "AGENT: AMAN VERMA", "AGENT: PRIYA GUPTA", "AGENT: KVR MALHOTRA", "AGENT: VIKRAM ROY"];
-let nameIdx = 0;
-setInterval(() => {
-  nameIdx = (nameIdx + 1) % sampleNames.length;
-  const agentEl = document.getElementById('previewAgentName');
-  if(agentEl) {
-    agentEl.textContent = sampleNames[nameIdx];
+// ID Card Live Update & Download Logic using Canvas
+function updateIdCardPreview() {
+  let val = document.getElementById('customAgentNameInput').value.trim();
+  if(!val) val = "AGENT: UNKNOWN";
+  if(!val.toUpperCase().startsWith("AGENT:")) {
+    val = "AGENT: " + val.toUpperCase();
   }
-}, 3000);
+  document.getElementById('previewAgentName').textContent = val;
+}
 
+function downloadIdCardImage() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 600;
+  canvas.height = 350;
+  const ctx = canvas.getContext('2d');
+
+  // Background gradient
+  ctx.fillStyle = '#080605';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Gold Border
+  ctx.strokeStyle = '#dfb175';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+
+  // Header
+  ctx.fillStyle = '#dfb175';
+  ctx.font = 'bold 14px "Courier New", monospace';
+  ctx.fillText('THE BLACK LEDGER // VIP AGENT PASS', 30, 50);
+
+  // Verified Badge Stamp
+  ctx.fillStyle = '#dfb175';
+  ctx.fillRect(430, 35, 120, 30);
+  ctx.fillStyle = '#080605';
+  ctx.font = 'bold 12px "Courier New", monospace';
+  ctx.fillText('VERIFIED', 460, 55);
+
+  // Agent Name
+  let agentName = document.getElementById('previewAgentName').textContent;
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 24px Georgia, serif';
+  ctx.fillText(agentName, 30, 130);
+
+  // Status line
+  ctx.fillStyle = '#9e9488';
+  ctx.font = '13px "Courier New", monospace';
+  ctx.fillText('STATUS: VERIFIED & REFUND-SECURED (2000)', 30, 180);
+  
+  ctx.fillStyle = '#22c55e';
+  ctx.fillRect(30, 200, 10, 10);
+  ctx.fillStyle = '#22c55e';
+  ctx.fillText('ACTIVE CLEARANCE LEVEL 3', 50, 210);
+
+  // Footer Access info
+  ctx.fillStyle = '#a89988';
+  ctx.font = '11px "Courier New", monospace';
+  ctx.fillText('ACCESS: VIP INSTAGRAM CHANNEL & TOURNAMENT VAULT', 30, 280);
+
+  // Trigger download
+  const link = document.createElement('a');
+  link.download = 'Black_Ledger_Detective_ID.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+// Mystery Game Logic
 const mysteryLevels = [
   {
     level: 1,
@@ -403,7 +521,7 @@ function verifyAgentAccess() {
     currentAgent = JSON.parse(savedData);
   }
 
-    currentLevel = currentAgent.level || 1;
+  currentLevel = currentAgent.level || 1;
   document.getElementById('authCheckScreen').style.display = 'none';
   document.getElementById('gamePlayScreen').style.display = 'block';
   document.getElementById('displayAgentName').textContent = `AGENT: ${inputVal.toUpperCase()}`;
